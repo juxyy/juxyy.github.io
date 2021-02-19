@@ -4,13 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>榉橡的博客</title>
+  <title>ACTF_Junior_2021_write_up | 榉橡的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="榉橡的博客">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="crypto Do_you_know_PRNG                      12345678910111213141516171819202122232425262728293031323334353637from Crypto.Util.number import *from flag import A,B,seed,flagS&#x3D;[seed]def rand(mod):    S.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ACTF_Junior_2021_write_up">
+<meta property="og:url" content="http://example.com/2021/02/19/ACTF-Junior-2021-write-up/index.html">
 <meta property="og:site_name" content="榉橡的博客">
+<meta property="og:description" content="crypto Do_you_know_PRNG                      12345678910111213141516171819202122232425262728293031323334353637from Crypto.Util.number import *from flag import A,B,seed,flagS&#x3D;[seed]def rand(mod):    S.">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-02-19T14:47:06.000Z">
+<meta property="article:modified_time" content="2021-02-19T15:14:03.596Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -69,9 +73,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-ACTF-Junior-2021-write-up" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-ACTF-Junior-2021-write-up" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/02/19/ACTF-Junior-2021-write-up/" class="article-date">
   <time class="dt-published" datetime="2021-02-19T14:47:06.000Z" itemprop="datePublished">2021-02-19</time>
@@ -84,8 +86,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/02/19/ACTF-Junior-2021-write-up/">ACTF_Junior_2021_write_up</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      ACTF_Junior_2021_write_up
     </h1>
   
 
@@ -117,87 +119,19 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-github-个人博客" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/19/github-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="article-date">
-  <time class="dt-published" datetime="2021-02-19T01:01:42.000Z" itemprop="datePublished">2021-02-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/02/19/github-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">github 个人博客的搭建</a>
-    </h1>
+    <a href="/2021/02/19/github-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">github 个人博客的搭建</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <pre><code>1. 注册一个GitHub账号
-2. 新建一个仓库，命名方式  用户名.github.io
-3. 进入仓库，点击settings，下滑到GitHub pages ,选择一个主题。现在就可以进入https://用户名.github.io查看博客了
-</code></pre>
-<h2 id="hexo配置"><a href="#hexo配置" class="headerlink" title="hexo配置"></a><strong>hexo配置</strong></h2><p>​    1.安装node.js </p>
-<p>​        下载安装包，一直next    </p>
-<p>​        检测安装成功  命令行输入node -v</p>
-<p>​        检测npm是否安装成功，在命令行中输入npm -v </p>
-<p>​    2.安装git</p>
-<p>​        git配置</p>
-<p>​        检测安装成功    命令行输入git</p>
-<p>​         安装好后，鼠标右键打开git bash  设置user.name和user.email配置信息</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;你的GitHub用户名&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;你的GitHub注册邮箱&quot;</span></span><br></pre></td></tr></table></figure>
-<p>​        生成ssh密钥文件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;你的GitHub注册邮箱&quot;</span></span><br></pre></td></tr></table></figure>
-<pre><code>    然后直接三个回车即可，默认不需要设置密码
-</code></pre>
-<p>​        然后找到生成的.ssh的文件夹中的id_rsa.pub密钥，将内容全部复制    </p>
-<p>​        打开<a href="https://link.zhihu.com/?target=https://github.com/settings/keys">GitHub_Settings_keys</a> 页面，新建new SSH Key</p>
-<p><img src="https://pic1.zhimg.com/80/v2-72a3f22c080e99343c3cc4aabce10e3c_720w.jpg" alt="img"></p>
-<p>​        Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。<br>​        在Git Bash中检测GitHub公钥设置是否成功，输入 ssh <a href="mailto:&#x67;&#x69;&#x74;&#x40;&#103;&#105;&#x74;&#x68;&#x75;&#x62;&#x2e;&#99;&#111;&#109;">&#x67;&#x69;&#x74;&#x40;&#103;&#105;&#x74;&#x68;&#x75;&#x62;&#x2e;&#99;&#111;&#109;</a> ：</p>
-<p><img src="https://pic3.zhimg.com/80/v2-da481ffa686410becd4186c656b4ebd6_720w.jpg" alt="img"></p>
-<p>​            如上则说明成功。这里之所以设置GitHub密钥原因是，通过非对称加密的公钥与私钥来完成加密，公钥放置在GitHub上，私钥放            置在自己的电脑里。GitHub要求每次推送代码都是合法用户，所以每次推送都需要输入账号密码验证推送用户是否是合法用户，            为了省去每次输入密码的步骤，采用了ssh，当你推送的时候，git就会匹配你的私钥跟GitHub上面的公钥是否是配对的，若是匹配            就认为你是合法用户，则允许推送。这样可以保证每次的推送都是正确合法的。</p>
-<p>3.安装hexo  npm install -g hexo-cli     也可以通过淘宝镜像进行下载</p>
-<p>4.新建一个空的文件夹，进入文件夹，在空白地方按住shift键，然后鼠标右键，会出现在此处打开命令行工具的选项</p>
-<p>   进行初始化 ： hexo init</p>
-<p>5.本地查看博客  hexo g</p>
-<p>​                            hexo  s</p>
-<p>​    浏览器打开输入localhost:4000进行查看</p>
-<p>​                            部署 ：hexo </p>
-<h5 id="更新之后github-上的主分支是main-不是master"><a href="#更新之后github-上的主分支是main-不是master" class="headerlink" title="更新之后github 上的主分支是main   不是master"></a>更新之后github 上的主分支是main   不是master</h5><p><strong>现在来介绍常用的Hexo 命令</strong></p>
-<p>npm install hexo -g     #安装Hexo<br>npm update hexo -g    #升级<br>hexo init    #初始化博客</p>
-<p>命令简写<br>hexo n  “我的博客” == hexo new  “我的博客”   #新建文章<br>hexo g == hexo generate   #生成<br>hexo s == hexo server   #启动服务预览<br>hexo d == hexo deploy   #部署</p>
-<p>hexo server     #Hexo会监视文件变动并自动更新，无须重启服务器<br>hexo server -s    #静态模式<br>hexo server -p 5000     #更改端口<br>hexo server -i 192.168.1.1     #自定义 IP<br>hexo clean     #清除缓存，若是网页正常情况下可以忽略这条命令</p>
-<p> 引：</p>
-<p>​        <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26625249">https://zhuanlan.zhihu.com/p/26625249</a></p>
-<p>​        <a target="_blank" rel="noopener" href="https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html">https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html</a></p>
-<p>​        <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/33801391">https://zhuanlan.zhihu.com/p/33801391</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/02/19/github-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" data-id="cklbl9rf90000bovt8fxm02h9" data-title="github 个人博客的搭建" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
 
 
 </section>
