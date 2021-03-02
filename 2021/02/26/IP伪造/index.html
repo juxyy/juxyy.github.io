@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="日常修养," />
 
 
 
@@ -87,8 +87,9 @@
 <meta property="og:description" content="Client-Ip: 127.0.0.1X-Forwarded-For: 127.0.0.1Host: 127.0.0.1Referer: www.google.com ​        X-Forwarded-For 是一个事实标准，虽然没有写入 HTTP RFC 规范里，从普及程度上看其实可以算 HTTP 规范了。 ​        这个标准是这样定义的，每次代理服务器转发请求到下一个服务器时">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-02-26T01:22:22.000Z">
-<meta property="article:modified_time" content="2021-02-26T01:37:29.827Z">
+<meta property="article:modified_time" content="2021-03-02T01:22:21.187Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="日常修养">
 <meta name="twitter:card" content="summary">
 
 
@@ -201,9 +202,9 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/%20" rel="section">
+          <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
             Tags
           </a>
@@ -334,16 +335,16 @@
 <p>​        这个标准是这样定义的，每次代理服务器转发请求到下一个服务器时，要把代理服务器的 IP 写入 X-Forwarded-For 中，这样在最末端的应用服务收到请求时，就会得到一个 IP 列表：<br>X-Forwarded-For: client, proxy1, proxy2<br>因为 IP 是一个一个依次 push 进去的，那么第一个 IP 就是用户的真实 IP，取来用就好了。<br>但是，事实有这么简单吗？</p>
 <p>   攻击<br>        从安全的角度上考虑，整个系统最不安全的就是人，用户端都是最好攻破最好伪造的。有些用户就开始钻协议的漏洞：X-Forwarded-For 是代理服务器添加的，如果我一开始请求的 Header 头里就加了 X-Forwarded-For ，不就骗过服务器了吗？</p>
 <ol>
-<li><p>首先从客户端发出请求，带有 X-Forwarded-For 请求头，里面写一个伪造的 IP：<br>X-Forwarded-For: fakeIP</p>
+<li><p>首先从客户端发出请求，带有 X-Forwarded-For 请求头，里面写一个伪造的 IP：<br> X-Forwarded-For: fakeIP</p>
 </li>
 <li><p>服务端第一层代理服务收到请求，发现已经有 X-Forwarded-For，误把这个请求当成代理服务器，于是向这个字段追加了客户端的真实 IP：   <strong>X-Forwarded-For: fakeIP, client</strong></p>
 </li>
-<li><p>经过几层代理后，最终的服务器拿到的 Header 是这样的：</p>
+<li><p>经过几层代理后，最终的服务器拿到的 Header 是这样的：<br> <strong>X-Forwarded-For: fakeIP, client, proxy1, proxy2</strong><br> 要是按照取 X-Forwarded-For 第一个 IP 的思路，你就着了攻击者的道了，你拿到的是 fakeIP，而不是 client IP。<br> 破招<br> 服务端如何破招？上面三个步骤：<br> 第一步是客户端造假，服务器无法介入<br> 第二步是代理服务器，可控，可防范<br> 第三步是应用服务器，可控，可防范<br> 第二步的破解我拿 Nginx 服务器举例。<br> 我们在最外层的 Nginx 上，对 X-Forwarded-For 的配置如下：<br> <strong>proxy_set_header X-Forwarded-For $remote_addr;</strong><br> 什么意思呢？就是最外层代理服务器不信任客户端的 X-Forwarded-For 输入，直接覆盖，而不是追加。<br> 非最外层的 Nginx 服务器，我们配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br></pre></td></tr></table></figure>
+<p>$proxy_add_x_forwarded_for 就是追加 IP 的意思。通过这招，就可以破解用户端的伪造办法。<br>第三步的破解思路也很容易，正常思路我们是取X-Forwarded-For 最左侧的 IP，这次我们反其道而行之，从右边数，减去代理服务器的数目，那么剩下的 IP 里，最右边的就是真实 IP。</p>
 </li>
 </ol>
-<p>  <strong>X-Forwarded-For: fakeIP, client, proxy1, proxy2</strong><br>  要是按照取 X-Forwarded-For 第一个 IP 的思路，你就着了攻击者的道了，你拿到的是 fakeIP，而不是 client IP。<br>  破招<br>  服务端如何破招？上面三个步骤：<br>  第一步是客户端造假，服务器无法介入<br>  第二步是代理服务器，可控，可防范<br>  第三步是应用服务器，可控，可防范<br>  第二步的破解我拿 Nginx 服务器举例。<br>  我们在最外层的 Nginx 上，对 X-Forwarded-For 的配置如下：<br>  <strong>proxy_set_header X-Forwarded-For $remote_addr;</strong><br>  什么意思呢？就是最外层代理服务器不信任客户端的 X-Forwarded-For 输入，直接覆盖，而不是追加。<br>  非最外层的 Nginx 服务器，我们配置：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br></pre></td></tr></table></figure>
-<p>  $proxy_add_x_forwarded_for 就是追加 IP 的意思。通过这招，就可以破解用户端的伪造办法。<br>  第三步的破解思路也很容易，正常思路我们是取X-Forwarded-For 最左侧的 IP，这次我们反其道而行之，从右边数，减去代理服务器的数目，那么剩下的 IP 里，最右边的就是真实 IP。<br>  <strong>X-Forwarded-For: fakeIP, client, proxy1, proxy2</strong><br>  比如说我们已知代理服务有两层，从右向左数，把 proxy1 和 proxy2 去掉，剩下的 IP 列表最右边的就是真实 IP。<br>  相关思路和代码实现可参考 Egg.js 前置代理模式。<br>  通过 X-Forwarded-For 获取用户真实 IP 时，最好不要取第一个 IP，以防止用户伪造 IP。</p>
+<p>  <strong>X-Forwarded-For: fakeIP, client, proxy1, proxy2</strong><br>  比如说我们已知代理服务有两层，从右向左数，把 proxy1 和 proxy2 去掉，剩下的 IP 列表最右边的就是真实 IP。<br>  相关思路和代码实现可参考 Egg.js 前置代理模式。<br>  通过 X-Forwarded-For 获取用户真实 IP 时，最好不要取第一个 IP，以防止用户伪造 IP。</p>
 
       
     </div>
@@ -359,6 +360,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/%E6%97%A5%E5%B8%B8%E4%BF%AE%E5%85%BB/" rel="tag"># 日常修养</a>
+          
+        </div>
+      
 
       
       
@@ -368,8 +375,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/02/24/%E6%9D%82%E8%AE%B0/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2021/02/19/ACTF-Junior-2021-write-up/" rel="next" title="ACTF_Junior_2021_write_up">
+                <i class="fa fa-chevron-left"></i> ACTF_Junior_2021_write_up
               </a>
             
           </div>
@@ -378,8 +385,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2021/02/27/%E5%90%88%E5%A4%A9%E5%91%A8%E8%AE%AD/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2021/02/27/PHP%E4%BC%AA%E5%8D%8F%E8%AE%AE/" rel="prev" title="PHP伪协议">
+                PHP伪协议 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -448,7 +455,7 @@
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -456,6 +463,15 @@
 
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
             
 
           </nav>
@@ -498,7 +514,7 @@
   
 </div>
 
-
+<--
   <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
@@ -508,7 +524,7 @@
 
 
   <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
-
+-->
 
 
 

