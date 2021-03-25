@@ -1,0 +1,188 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>中国剩余定理 | 榉橡的博客</title><meta name="keywords" content="数论"><meta name="author" content="榉橡"><meta name="copyright" content="榉橡"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="中国剩余定理在《孙子算经》中有这样一个问题：“今有物不知其数，三三数之剩二（除以3余2），五五数之剩三（除以5余3），七七数之剩二（除以7余2），问物几何？”这个问题称为“孙子问题”，该问题的一般解法国际上称为“中国剩余定理”。具体解法分三步：  找出三个数：从3和5的公倍数中找出被7除余1的最小数15，从3和7的公倍数中找出被5除余1 的最小数21，最后从5和7的公倍数中找出除3余1的最小数70">
+<meta property="og:type" content="article">
+<meta property="og:title" content="中国剩余定理">
+<meta property="og:url" content="http://example.com/2021/03/25/%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86/index.html">
+<meta property="og:site_name" content="榉橡的博客">
+<meta property="og:description" content="中国剩余定理在《孙子算经》中有这样一个问题：“今有物不知其数，三三数之剩二（除以3余2），五五数之剩三（除以5余3），七七数之剩二（除以7余2），问物几何？”这个问题称为“孙子问题”，该问题的一般解法国际上称为“中国剩余定理”。具体解法分三步：  找出三个数：从3和5的公倍数中找出被7除余1的最小数15，从3和7的公倍数中找出被5除余1 的最小数21，最后从5和7的公倍数中找出除3余1的最小数70">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="e:/blog/themes/butterfly/source/img">
+<meta property="article:published_time" content="2021-03-25T03:11:00.000Z">
+<meta property="article:modified_time" content="2021-03-25T03:32:32.176Z">
+<meta property="article:author" content="榉橡">
+<meta property="article:tag" content="数论">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="e:/blog/themes/butterfly/source/img"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2021/03/25/%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-03-25 11:32:32'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/null" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background: E:\blog\themes\butterfly\source\img"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">榉橡的博客</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">中国剩余定理</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-03-25T03:11:00.000Z" title="发表于 2021-03-25 11:11:00">2021-03-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-03-25T03:32:32.176Z" title="更新于 2021-03-25 11:32:32">2021-03-25</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="中国剩余定理"><a href="#中国剩余定理" class="headerlink" title="中国剩余定理"></a>中国剩余定理</h1><p>在《孙子算经》中有这样一个问题：“今有物不知其数，三三数之剩二（除以3余2），五五数之剩三（除以5余3），七七数之剩二（除以7余2），问物几何？”这个问题称为“孙子问题”，该问题的一般解法国际上称为“中国剩余定理”。具体解法分三步：</p>
+<ol>
+<li>找出三个数：从3和5的公倍数中找出被7除余1的最小数15，从3和7的公倍数中找出被5除余1 的最小数21，最后从5和7的公倍数中找出除3余1的最小数70。</li>
+<li>用15乘以2（2为最终结果除以7的余数），用21乘以3（3为最终结果除以5的余数），同理，用70乘以2（2为最终结果除以3的余数），然后把三个乘积相加15∗2+21∗3+70∗2得到和233。</li>
+<li>用233除以3，5，7三个数的最小公倍数105，得到余数23，即233%105=23。这个余数23就是符合条件的最小数。</li>
+</ol>
+<h2 id="推导过程"><a href="#推导过程" class="headerlink" title="推导过程"></a>推导过程</h2><p>先按照题目要求去设数</p>
+<p>设 n1 = 3*k+2 (K&gt;=0) </p>
+<p>​     n2 = 5*k+3 (k&gt;=0)</p>
+<p>​     n3 = 7*k+2 (k&gt;=0)</p>
+<p>从此出发，已知n1除3余2,设计   n1+n2  满足 除3余2, 进而使 n1+n2+n3 满足除3余2；</p>
+<p>已知  如果  a%b = c   则可以推出  （a+k*b）%b = c (k!=0的任意整数)</p>
+<p>则为了满足上述条件，n2,n3必须是3的倍数</p>
+<p>所以</p>
+<p>​     1.为使<em>n</em>1+<em>n</em>2+<em>n</em>3的和满足除以3余2，<em>n</em>2和<em>n</em>3必须是3的倍数。</p>
+<p>​     2.为使<em>n</em>1+<em>n</em>2+<em>n</em>3的和满足除以5余3，<em>n</em>1和<em>n</em>3必须是5的倍数。</p>
+<p>​     3.为使<em>n</em>1+<em>n</em>2+<em>n</em>3的和满足除以7余2，<em>n</em>1和<em>n</em>2必须是7的倍数</p>
+<p>以，孙子问题解法的本质是从5和7的公倍数中找一个除以3余2的数<em>n</em>1，从3和7的公倍数中找一个除以5余3的数<em>n</em>2，从3和5的公倍数中找一个除以7余2的数<em>n</em>3，再将三个数相加得到解。在求<em>n</em>1，<em>n</em>2，<em>n</em>3时又用了一个小技巧，以<em>n</em>1为例，并非从5和7的公倍数中直接找一个除以3余2的数，而是先找一个除以3余1的数，再乘以2。也就是<strong>先求出5和7的公倍数模3下的逆元，再用逆元去乘余数</strong>。</p>
+<p>最后，我们还要清楚一点，<em>n</em>1+<em>n</em>2+<em>n</em>3只是问题的一个解，并不是最小的解。如何得到最小解？我们只需要从中最大限度的减掉掉3，5，7的公倍数105即可。道理就是前面讲过的定理“如果<em>a</em>%<em>b</em>=<em>c</em>，则有(<em>a</em>−<em>k</em>∗<em>b</em>)%<em>b</em>=<em>c</em>”。所以（<em>n</em>1+<em>n</em>2+<em>n</em>3）%105</p>
+<p>就是最终的最小解。</p>
+<p>　　这样一来就得到了中国剩余定理的公式：</p>
+<blockquote>
+<p>设正整数<img src="http://img.blog.csdn.net/20140618184134796" alt="img">两两互素，则同余方程组</p>
+<p>​               <img src="http://img.blog.csdn.net/20140618184240203" alt="img"></p>
+<p>有整数解。并且在模<img src="http://img.blog.csdn.net/20140618184354156" alt="img">下的解是唯一的，解为</p>
+<p>​                <img src="http://img.blog.csdn.net/20140618184502609" alt="img"></p>
+<p>其中<img src="http://img.blog.csdn.net/20140618184601062" alt="img">，而<img src="http://img.blog.csdn.net/20140618184638140" alt="img">为<img src="http://img.blog.csdn.net/20140618184737359" alt="img">模<img src="http://img.blog.csdn.net/20140904164235549" alt="img">的逆元。</p>
+</blockquote>
+<h2 id="中国剩余定理扩展——求解模数不互质情况下的线性方程组："><a href="#中国剩余定理扩展——求解模数不互质情况下的线性方程组：" class="headerlink" title="中国剩余定理扩展——求解模数不互质情况下的线性方程组："></a>中国剩余定理扩展——求解模数不互质情况下的线性方程组：</h2><p>　　普通的中国剩余定理要求所有的<img src="http://img.blog.csdn.net/20140618185352656" alt="img">互素，那么如果不互素呢，怎么求解同余方程组？</p>
+<p>　　这种情况就采用两两合并的思想，假设要合并如下两个方程：</p>
+<p><img src="http://img.blog.csdn.net/20140618185529953" alt="img"></p>
+<p>　　那么得到：</p>
+<p><img src="http://img.blog.csdn.net/20140618185628671" alt="img"></p>
+<p>　　我们需要求出一个最小的<em>x</em></p>
+<p>使它满足：</p>
+<p><img src="https://images2015.cnblogs.com/blog/994344/201609/994344-20160928225142250-925008424.png" alt="img"></p>
+<p>　　那么<em>x</em>1</p>
+<p>和<em>x</em>2就要尽可能的小，于是我们用扩展欧几里得算法求出<em>x</em>1的最小正整数解，将它代回<em>a</em>1+<em>m</em>1<em>x</em>1，得到<em>x</em>的一个特解<em>x</em>′</p>
+<p>，当然也是最小正整数解。</p>
+<p>　　所以<em>x</em></p>
+<p>的通解一定是<em>x</em>′加上<em>l<strong>c</strong>m</em>(<em>m</em>1,<em>m</em>2)∗<em>k</em>，这样才能保证<em>x</em>模<em>m</em>1和<em>m</em>2的余数是<em>a</em>1和<em>a</em>2。由此，我们把这个<em>x</em>′当做新的方程的余数，把<em>l<strong>c</strong>m</em>(<em>m</em>1,<em>m</em>2)</p>
+<p>当做新的方程的模数。（这一段是<strong>关键</strong>）</p>
+<p>　　合并完成：</p>
+<p><img src="https://images2015.cnblogs.com/blog/994344/201609/994344-20160929150603750-268147485.png" alt="img"></p>
+<hr>
+<p>学习自<a target="_blank" rel="noopener" href="https://www.cnblogs.com/MashiroSky/p/5918158.html">https://www.cnblogs.com/MashiroSky/p/5918158.html</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">榉橡</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/03/25/%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86/">http://example.com/2021/03/25/%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">榉橡的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E8%AE%BA/">数论</a></div><div class="post_share"><div class="social-share" data-image="E:\blog\themes\butterfly\source\img" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/03/23/rsa%E5%AD%A6%E4%B9%A0%E7%BB%88%E7%BB%93/"><img class="next-cover" src="E:\blog\themes\butterfly\source\img" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">rsa学习终结</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/null" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">榉橡</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">中国剩余定理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E5%AF%BC%E8%BF%87%E7%A8%8B"><span class="toc-number">1.1.</span> <span class="toc-text">推导过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%E6%89%A9%E5%B1%95%E2%80%94%E2%80%94%E6%B1%82%E8%A7%A3%E6%A8%A1%E6%95%B0%E4%B8%8D%E4%BA%92%E8%B4%A8%E6%83%85%E5%86%B5%E4%B8%8B%E7%9A%84%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84%EF%BC%9A"><span class="toc-number">1.2.</span> <span class="toc-text">中国剩余定理扩展——求解模数不互质情况下的线性方程组：</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/03/25/%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86/" title="中国剩余定理"><img src="E:\blog\themes\butterfly\source\img" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="中国剩余定理"/></a><div class="content"><a class="title" href="/2021/03/25/%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86/" title="中国剩余定理">中国剩余定理</a><time datetime="2021-03-25T03:11:00.000Z" title="发表于 2021-03-25 11:11:00">2021-03-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/03/23/rsa%E5%AD%A6%E4%B9%A0%E7%BB%88%E7%BB%93/" title="rsa学习终结"><img src="E:\blog\themes\butterfly\source\img" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="rsa学习终结"/></a><div class="content"><a class="title" href="/2021/03/23/rsa%E5%AD%A6%E4%B9%A0%E7%BB%88%E7%BB%93/" title="rsa学习终结">rsa学习终结</a><time datetime="2021-03-23T02:15:10.000Z" title="发表于 2021-03-23 10:15:10">2021-03-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/03/20/%E6%9C%AC%E5%91%A8%E8%AE%AD%E7%BB%83%E7%AC%AC%E4%B8%80%E6%AC%A1/" title="本周训练第一次"><img src="E:\blog\themes\butterfly\source\img" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="本周训练第一次"/></a><div class="content"><a class="title" href="/2021/03/20/%E6%9C%AC%E5%91%A8%E8%AE%AD%E7%BB%83%E7%AC%AC%E4%B8%80%E6%AC%A1/" title="本周训练第一次">本周训练第一次</a><time datetime="2021-03-20T07:44:35.000Z" title="发表于 2021-03-20 15:44:35">2021-03-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/03/18/thinkphp5%E8%BF%9C%E7%A8%8B%E6%BC%8F%E6%B4%9E/" title="thinkphp5远程漏洞"><img src="E:\blog\themes\butterfly\source\img" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="thinkphp5远程漏洞"/></a><div class="content"><a class="title" href="/2021/03/18/thinkphp5%E8%BF%9C%E7%A8%8B%E6%BC%8F%E6%B4%9E/" title="thinkphp5远程漏洞">thinkphp5远程漏洞</a><time datetime="2021-03-18T01:34:39.000Z" title="发表于 2021-03-18 09:34:39">2021-03-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/03/17/git%E6%BA%90%E7%A0%81%E6%B3%84%E9%9C%B2/" title="git源码泄露"><img src="E:\blog\themes\butterfly\source\img" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="git源码泄露"/></a><div class="content"><a class="title" href="/2021/03/17/git%E6%BA%90%E7%A0%81%E6%B3%84%E9%9C%B2/" title="git源码泄露">git源码泄露</a><time datetime="2021-03-17T12:22:14.000Z" title="发表于 2021-03-17 20:22:14">2021-03-17</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By 榉橡</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"live2d-widget-model-<你喜欢的模型名字>"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>
